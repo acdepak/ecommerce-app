@@ -18,10 +18,12 @@ module.exports = {
         poppins: ["Poppins", "sans-serif"],
       },
       colors: {
-        sky: {
-          600: "#0097D8",
-        },
+        lightblue: "#86C1CF",
+        sky: "#0097D8",
         darkblue: "#22374A",
+        cream: "#F8F2EC",
+        red: "#C2463B",
+        yellow: "#FFC84A",
       },
     },
   },
