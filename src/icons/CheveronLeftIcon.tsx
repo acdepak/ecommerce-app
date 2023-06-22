@@ -4,7 +4,7 @@ export const CheveronLeftIcon = () => {
       <path
         d="M25.6001 9.59998L16.0001 19.2L25.6001 28.8"
         stroke="white"
-        stroke-width="2"
+        strokeWidth="2"
       />
     </svg>
   );

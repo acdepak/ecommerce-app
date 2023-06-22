@@ -1,9 +1,13 @@
-import { ArrowIcon, ExclamationIcon, GiftIcon } from "@/icons";
-import { BelgiumFlagIcon } from "@/icons/BelgiumFlagIcon";
-import { EuIcon } from "@/icons/EuIcon";
-import { GermanyFlagIcon } from "@/icons/GermanyFlagIcon";
-import { NethelandFlagIcon } from "@/icons/NethelandFlagIcon";
-import { WorldwideIcon } from "@/icons/WorldwideIcon";
+import {
+  ArrowIcon,
+  BelgiumFlagIcon,
+  EuIcon,
+  ExclamationIcon,
+  GermanyFlagIcon,
+  GiftIcon,
+  NethelandFlagIcon,
+  WorldwideIcon,
+} from "@/icons";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -171,13 +175,16 @@ const FooterFooter = () => {
             </button>
 
             <div className="flex flex-col justify-start">
-              <div className="flex gap-3">
+              <div className="flex items-center gap-3">
                 <div className="h-5 w-5">
                   <GiftIcon />
                 </div>
-                <p className="font-mulish text-sm font-bold leading-7">
+                <Link
+                  href={"#"}
+                  className="font-mulish text-sm font-bold leading-7"
+                >
                   TRY OUR MISTRY BOX
-                </p>
+                </Link>
                 <div className="flex h-5 w-5 justify-center">
                   <ArrowIcon />
                 </div>
