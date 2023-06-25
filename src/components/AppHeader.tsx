@@ -82,7 +82,7 @@ const Menu = () => {
     { id: 5, title: "Kids", link: "#" },
   ];
   return (
-    <div className="flex items-center justify-center gap-12 pb-8 pt-5">
+    <div className="flex items-center justify-center gap-12 pb-1 pt-5">
       <div className="flex items-center justify-center gap-12">
         {menuItems.map((item) => (
           <div key={item.id} className="flex items-center gap-2">
