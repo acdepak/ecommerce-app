@@ -43,6 +43,7 @@ export const AppHeader = () => {
               src="/assets/images/Logo.png"
               alt="Sling for Babies"
               fill
+              sizes="(max-width: 768px) 100vw"
               className="object-contain"
               quality={100}
             />
