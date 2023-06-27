@@ -10,10 +10,24 @@ import {
 import { useWindowWidth } from "@react-hook/window-size";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { createRef, useEffect, useState } from "react";
 import Slider from "react-slick";
 
 export default function Home() {
+  return (
+    <main className="!flex flex-col ">
+      <HeroSection />
+      <WorkFlowSection />
+      <ProductSection />
+      <FeaturedSection />
+      Hello
+    </main>
+  );
+}
+
+const HeroSection = () => {
+  const settingsRef = createRef<Slider>();
+
   const settings = {
     dotsClass: "slick-dots !flex gap-8 justify-center items-center ",
     slidesToScroll: 1,
@@ -33,10 +47,17 @@ export default function Home() {
     { id: 3, link: "/assets/images/hero102.png", alt: "Hero3" },
   ];
 
+  const nextImg = () => {
+    settingsRef?.current && settingsRef?.current.slickPrev();
+  };
+
+  const PreviousImg = () => {
+    settingsRef?.current && settingsRef?.current.slickNext();
+  };
   return (
-    <main className="!flex flex-col ">
+    <>
       <div className="hero relative h-[80vh] overflow-x-clip">
-        <Slider {...settings}>
+        <Slider ref={settingsRef} {...settings}>
           {heroImage?.map(({ id, link, alt }) => (
             <div className="relative h-[80vh]" key={id}>
               <Image
@@ -64,22 +85,21 @@ export default function Home() {
         </div>
         <div className="absolute bottom-0 top-0 my-auto h-fit w-full">
           <div className="flex justify-between px-10">
-            <div className="h-10 w-10">
+            <div
+              className="h-10 w-10 hover:cursor-pointer"
+              onClick={PreviousImg}
+            >
               <CheveronLeftIcon />
             </div>
-            <div className="h-10 w-10">
+            <div className="h-10 w-10 hover:cursor-pointer" onClick={nextImg}>
               <CheveronRightIcon />
             </div>
           </div>
         </div>
       </div>
-      <WorkFlowSection />
-      <ProductSection />
-      <FeaturedSection />
-      Hello
-    </main>
+    </>
   );
-}
+};
 
 const WorkFlowSection = () => {
   const works = [
