@@ -11,8 +11,8 @@ export const ShopAllProd = ({
 }) => {
   return (
     <div>
-      <Link href={url} className="flex items-center gap-3">
-        <p className="font-josefin text-sm font-bold leading-[60px] tracking-wider">
+      <Link href={url} className="flex flex-wrap items-center gap-3">
+        <p className="font-josefin text-sm font-bold leading-6 tracking-wider lg:leading-[60px]">
           SHOP ALL PRODUCTS
         </p>
         <div
