@@ -1,6 +1,6 @@
 "use client";
+import { FeaturedSection, ShopAllProd } from "@/components";
 import {
-  ArrowIcon,
   CheveronLeftIcon,
   CheveronRightIcon,
   PlantStarIcon,
@@ -15,6 +15,7 @@ import Slider from "react-slick";
 
 export default function Home() {
   const settings = {
+    dotsClass: "slick-dots !flex gap-8 justify-center items-center ",
     slidesToScroll: 1,
     slidesToShow: 1,
     autoplay: false,
@@ -33,8 +34,8 @@ export default function Home() {
   ];
 
   return (
-    <main className="flex flex-col ">
-      <div className="relative h-[80vh] overflow-x-clip">
+    <main className="!flex flex-col ">
+      <div className="hero relative h-[80vh] overflow-x-clip">
         <Slider {...settings}>
           {heroImage?.map(({ id, link, alt }) => (
             <div className="relative h-[80vh]" key={id}>
@@ -51,23 +52,14 @@ export default function Home() {
         </Slider>
         <div className="absolute bottom-0 right-72 top-0 my-auto h-fit">
           <div className="flex flex-col gap-5 text-cream">
-            <p className="font font-josefin text-5xl font-semibold leading-[65px]">
+            <h1 className="font font-josefin text-5xl font-semibold leading-[65px]">
               King's Day 2023!
-            </p>
+            </h1>
             <p className="max-w-sm font-mulish text-lg leading-7">
               Our market starts at noon. You receive a 25% discount with the
               code SFG500 on selected wraps and ring slings.
             </p>
-            <Link href={"#"} className="flex items-center gap-3">
-              <p className="font-josefin text-sm font-bold leading-[60px] tracking-wider">
-                SHOP ALL PRODUCTS
-              </p>
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-yellow">
-                <div className="h-2 w-4">
-                  <ArrowIcon />
-                </div>
-              </div>
-            </Link>
+            <ShopAllProd url="/" varient="hero" />
           </div>
         </div>
         <div className="absolute bottom-0 top-0 my-auto h-fit w-full">
@@ -83,6 +75,7 @@ export default function Home() {
       </div>
       <WorkFlowSection />
       <ProductSection />
+      <FeaturedSection />
       Hello
     </main>
   );
@@ -203,9 +196,9 @@ const ProductSection = () => {
             <div
               className={`absolute flex flex-col gap-2 ${
                 img.position == "bottom"
-                  ? "bottom-[10%] left-5 right-0 m-auto lg:left-0"
+                  ? "bottom-[10%] left-5 right-0 m-auto lg:left-10"
                   : img.position == "center"
-                  ? "bottom-[10%] left-5 right-0 m-auto lg:right-20 lg:top-1/3 "
+                  ? "bottom-[10%] left-5 right-0 m-auto lg:left-auto lg:right-20 lg:top-1/3 "
                   : "bottom-[10%] left-5 right-0 m-auto lg:left-20 lg:top-1/3 "
               }`}
             >
@@ -227,56 +220,3 @@ const ProductSection = () => {
     </div>
   );
 };
-{
-  /* <div className="relative h-[400px]">
-          <Image
-            src="/assets/images/image 102.png"
-            alt="image1"
-            fill
-            quality={100}
-            sizes="(max-width: 768px) 100vw"
-            className="object-cover"
-          />
-          <div className="absolute">
-            <p>Woven Wraps</p>
-            <p>
-              Woven wraps for children provide extreme comfort of carrying a
-              baby in many ways!
-            </p>
-          </div>
-        </div>
-        <div className="relative col-span-2 h-[400px]">
-          <Image
-            src="/assets/images/hero102.png"
-            alt="image2"
-            fill
-            quality={100}
-            sizes="(max-width: 768px) 100vw"
-            className="object-cover"
-          />
-          <div className="absolute">
-            <p>Ring Sling</p>
-            <p>
-              Ring Slings are simple to use baby carriers suitable for newborn
-              to toddler.
-            </p>
-          </div>
-        </div>
-        <div className="relative col-span-2 h-[400px]">
-          <Image
-            src="/assets/images/image104.png"
-            alt="image3"
-            fill
-            quality={100}
-            sizes="(max-width: 768px) 100vw"
-            className="object-cover"
-          />
-          <div className="absolute">
-            <p>Soft Structured Carrier</p>
-            <p>
-              The soft structured baby carrier has its own structure with
-              padding, fabrics, straps and other accessories.{" "}
-            </p>
-          </div>
-        </div> */
-}
