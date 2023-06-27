@@ -31,44 +31,44 @@ const DeliverySection = () => {
         </p>
       </div>
 
-      <div className="flex items-center justify-center gap-40">
-        <div>
-          <div className="flex flex-col items-center gap-2">
-            <div className="flex gap-5">
-              <div className="h-12 w-16">
-                <BelgiumFlagIcon />
-              </div>
-              <div className="h-12 w-16">
-                <NethelandFlagIcon />
-              </div>
-              <div className="h-12 w-16">
-                <GermanyFlagIcon />
-              </div>
+      <div className="flex flex-col items-center justify-center gap-10 md:flex-row md:gap-20 lg:gap-40">
+        <div className="flex flex-col items-center gap-2">
+          <div className="flex gap-5">
+            <div className="h-12 w-16">
+              <BelgiumFlagIcon />
             </div>
-            <p className="font-mulish text-base">
-              Belgium, Netherlands, Germany
-            </p>
-            <p className="font-mulish text-lg font-bold">€4,95</p>
-            <p className="text-sky">Free from €90</p>
+            <div className="h-12 w-16">
+              <NethelandFlagIcon />
+            </div>
+            <div className="h-12 w-16">
+              <GermanyFlagIcon />
+            </div>
           </div>
+
+          <p className="font-mulish text-base">Belgium, Netherlands, Germany</p>
+
+          <p className="font-mulish text-lg font-bold">€4,95</p>
+
+          <p className="text-sky">Free from €90</p>
         </div>
 
-        <div>
-          <div className="flex flex-col items-center gap-2">
-            <div className="flex gap-5">
-              <div className="h-12 w-16">
-                <EuIcon />
-              </div>
+        <div className="flex flex-col items-center gap-2">
+          <div className="flex gap-5">
+            <div className="h-12 w-16">
+              <EuIcon />
             </div>
-            <p className="font-mulish text-base">European Union</p>
-            <p className="flex items-center gap-2 font-mulish text-lg font-bold">
-              €9,95
-              <span className="h-5 w-5">
-                <ExclamationIcon />
-              </span>
-            </p>
-            <p className="text-sky">Free from €150</p>
           </div>
+
+          <p className="font-mulish text-base">European Union</p>
+
+          <p className="flex items-center gap-2 font-mulish text-lg font-bold">
+            €9,95
+            <span className="h-5 w-5">
+              <ExclamationIcon />
+            </span>
+          </p>
+
+          <p className="text-sky">Free from €150</p>
         </div>
 
         <div>
@@ -83,6 +83,7 @@ const DeliverySection = () => {
             <p className="text-sky">Free from €200</p>
           </div>
         </div>
+        {/*  */}
       </div>
     </div>
   );
@@ -103,9 +104,12 @@ const BrandsSection = () => {
         OUR MOST VALUABLE BRANDS
       </p>
 
-      <div className="flex items-center justify-center gap-32">
+      <div className="flex items-center justify-center gap-5 md:gap-10 lg:gap-32">
         {brands?.map((brand) => (
-          <div key={brand?.id} className="relative h-20 w-24">
+          <div
+            key={brand?.id}
+            className="relative h-10 w-12 md:h-14 md:w-16 lg:h-20 lg:w-24"
+          >
             <Image
               src={brand?.src}
               alt={brand?.alt}
@@ -144,29 +148,36 @@ const FooterFooter = () => {
   ];
   return (
     <div className="flex items-center justify-center pb-10 pt-20">
-      <div className="container flex flex-col items-center gap-10 divide-y divide-gray-300 px-28">
-        <div className="grid w-full grid-flow-row grid-cols-3 justify-center gap-x-52">
+      <div className="container flex flex-col items-center gap-10 divide-y divide-gray-300 lg:px-28">
+        <div className="grid w-full grid-flow-row grid-cols-2 justify-center gap-y-10 pl-5 md:grid-cols-4 md:gap-x-5 md:pl-0 lg:grid-cols-3 lg:gap-x-52">
+          {/*  */}
           <div>
-            <p className="pb-5 font-josefin text-base font-semibold leading-7">
+            <h3 className="pb-2 font-josefin text-sm font-semibold leading-7 lg:text-base">
               ABOUT
-            </p>
+            </h3>
             {Abouts?.map((about, id) => (
-              <div key={id} className="font-mulish text-base leading-8">
-                <Link href={about.link}>{about.title}</Link>
-              </div>
+              <ul key={id}>
+                <li className="font-mulish text-sm leading-6 lg:text-base lg:leading-8">
+                  <Link href={about.link}>{about.title}</Link>
+                </li>
+              </ul>
             ))}
           </div>
 
           <div>
-            <p className="pb-5 font-josefin text-base font-semibold">SHOP</p>
+            <h3 className="pb-2 font-josefin text-sm font-semibold leading-7 lg:text-base">
+              SHOP
+            </h3>
             {Shops?.map((item, id) => (
-              <div key={id} className="font-mulish text-base leading-8">
-                <Link href={item.link}>{item.title}</Link>
-              </div>
+              <ul key={id}>
+                <li className="font-mulish text-sm leading-6 lg:text-base lg:leading-8">
+                  <Link href={item.link}>{item.title}</Link>
+                </li>
+              </ul>
             ))}
           </div>
 
-          <div className="flex flex-col items-start gap-5">
+          <div className="col-span-2 flex flex-col items-start gap-5 lg:col-span-1">
             <p className="font-josefin text-base font-semibold leading-7">
               JOIN THE SFB COMMUNITY!
             </p>
@@ -181,7 +192,7 @@ const FooterFooter = () => {
                 </div>
                 <Link
                   href={"#"}
-                  className="font-mulish text-sm font-bold leading-7"
+                  className="font-mulish text-sm font-bold lg:leading-7"
                 >
                   TRY OUR MISTRY BOX
                 </Link>
@@ -189,15 +200,16 @@ const FooterFooter = () => {
                   <ArrowIcon />
                 </div>
               </div>
-              <p className="max-w-xs px-8 font-mulish text-sm">
+              <p className="max-w-xs px-8 pt-2 font-mulish text-sm">
                 We surprise you with a box that will definitely be a match for
                 you.
               </p>
             </div>
+            {/*  */}
           </div>
         </div>
 
-        <div className="flex w-full justify-between pt-10">
+        <div className="flex w-full flex-wrap justify-center gap-10 pt-10 lg:justify-between lg:gap-0">
           <div className="relative h-[26px] w-[460px]">
             <Image
               src="/assets/images/visa.png"
