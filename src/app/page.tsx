@@ -3,11 +3,14 @@ import { FeaturedSection, ShopAllProd } from "@/components";
 import {
   CheveronLeftIcon,
   CheveronRightIcon,
+  FacebookIcon,
+  LikeIcon,
   PlantStarIcon,
   ScrollIcon,
   SecurityIcon,
 } from "@/icons";
 import { useWindowWidth } from "@react-hook/window-size";
+import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import { createRef, useEffect, useState } from "react";
@@ -20,7 +23,8 @@ export default function Home() {
       <WorkFlowSection />
       <ProductSection />
       <FeaturedSection />
-      Hello
+      <SocialSection />
+      <BlogSection />
     </main>
   );
 }
@@ -239,4 +243,139 @@ const ProductSection = () => {
       </div>
     </div>
   );
+};
+
+const SocialSection = () => {
+  const posts = [
+    {
+      id: 1,
+      link: "/assets/images/image 108.png",
+      alt: "image 108",
+      text: "Likes",
+      likes: "14,900",
+      icon: <LikeIcon />,
+      tag: "@SlingForBabies",
+      color: "red",
+    },
+    {
+      id: 2,
+      link: "/assets/images/image 107.png",
+      alt: "image 107",
+      text: "Likes",
+      likes: "14,900",
+      icon: <LikeIcon />,
+      tag: "@SlingForBabies",
+      color: "red",
+    },
+    {
+      id: 3,
+      link: "/assets/images/image 109.png",
+      alt: "image 109",
+      text: "Likes",
+      likes: "14,900",
+      icon: <LikeIcon />,
+      tag: "@SlingForBabies",
+      color: "red",
+    },
+    {
+      id: 4,
+      link: "/assets/images/image 110.png",
+      alt: "image 110",
+      text: "Likes",
+      likes: "14,900",
+      icon: <LikeIcon />,
+      tag: "@SlingForBabies",
+      color: "red",
+    },
+    {
+      id: 5,
+      link: "/assets/images/image 111.png",
+      alt: "image 111",
+      text: "People Follow Us",
+      likes: "10,264",
+      icon: <FacebookIcon />,
+      tag: "@SlingForBabies",
+      color: "darkblue",
+    },
+    {
+      id: 6,
+      link: "/assets/images/image 112.png",
+      alt: "image 112",
+      text: "People Follow Us",
+      likes: "10,264",
+      icon: <FacebookIcon />,
+      tag: "@SlingForBabies",
+      color: "darkblue",
+    },
+    {
+      id: 7,
+      link: "/assets/images/image 105.png",
+      alt: "image 105",
+      text: "People Follow Us",
+      likes: "10,264",
+      icon: <FacebookIcon />,
+      tag: "@SlingForBabies",
+      color: "darkblue",
+    },
+    {
+      id: 8,
+      link: "/assets/images/image 113.png",
+      alt: "image 113",
+      text: "People Follow Us",
+      likes: "10,264",
+      icon: <FacebookIcon />,
+      tag: "@SlingForBabies",
+      color: "darkblue",
+    },
+  ];
+  return (
+    <div>
+      <h3 className="py-10 text-center font-mulish text-4xl">
+        Follow us on Facebook @SlingsForBabies
+      </h3>
+      <div className="grid grid-flow-row grid-cols-2 md:grid-cols-4">
+        {posts?.map((post, id) => (
+          <>
+            <div
+              key={id}
+              className="relative h-[200px] w-[220px] lg:h-[440px] lg:w-[480px] "
+            >
+              <Image
+                src={post.link}
+                alt={post.alt}
+                fill
+                sizes="(max-width: 768px) 100vw"
+                className="object-cover"
+                quality={100}
+              />
+              <div className="absolute top-0 h-[200px] w-[220px] lg:h-[440px] lg:w-[480px] ">
+                <div
+                  className={clsx(
+                    "flex h-full flex-col items-center justify-center gap-5 opacity-0 hover:opacity-100 lg:gap-10",
+                    {
+                      "hover:bg-red": post.color === "red",
+                      "text-white hover:bg-darkblue": post.color === "darkblue",
+                    }
+                  )}
+                >
+                  <div className="h-10 w-10 text-white lg:h-20 lg:w-20">
+                    {post.icon}
+                  </div>
+                  <div className="flex flex-col items-center gap-2 lg:gap-5">
+                    <p>{post.likes}</p>
+                    <p>{post.text}</p>
+                  </div>
+                  {post.tag}
+                </div>
+              </div>
+            </div>
+          </>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const BlogSection = () => {
+  return <div>Articles Section</div>;
 };
