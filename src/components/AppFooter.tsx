@@ -10,6 +10,7 @@ import {
 } from "@/icons";
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "./Button";
 
 export const AppFooter = () => {
   return (
@@ -181,9 +182,8 @@ const FooterFooter = () => {
             <p className="font-josefin text-base font-semibold leading-7">
               JOIN THE SFB COMMUNITY!
             </p>
-            <button className="rounded-full bg-sky p-4 px-10 text-center text-white">
-              SIGN UP FOR NEWSLETTERS
-            </button>
+
+            <Button varient="footer">SIGN UP FOR NEWSLETTERS</Button>
 
             <div className="flex flex-col justify-start">
               <div className="flex items-center gap-3">

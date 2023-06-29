@@ -1,5 +1,5 @@
 "use client";
-import { FeaturedSection, ShopAllProd } from "@/components";
+import { Button, FeaturedSection, ShopAllProd } from "@/components";
 import {
   CheveronLeftIcon,
   CheveronRightIcon,
@@ -236,9 +236,10 @@ const ProductSection = () => {
           </div>
         ))}
       </div>
-      <div className="flex items-center justify-center py-14">
-        <Link href={"#"} className="rounded-full border border-black p-3 px-5">
-          SHOP ALL PRODUCTS
+
+      <div className="flex justify-center py-14">
+        <Link href={"#"}>
+          <Button varient="primary">SHOP ALL PRODUCTS</Button>
         </Link>
       </div>
     </div>
@@ -351,10 +352,10 @@ const SocialSection = () => {
               <div className="absolute top-0 h-[200px] w-[220px] lg:h-[440px] lg:w-[480px] ">
                 <div
                   className={clsx(
-                    "flex h-full flex-col items-center justify-center gap-5 opacity-0 hover:opacity-100 lg:gap-10",
+                    "flex h-full flex-col items-center justify-center gap-5 text-white opacity-0 hover:opacity-100 lg:gap-10",
                     {
                       "hover:bg-red": post.color === "red",
-                      "text-white hover:bg-darkblue": post.color === "darkblue",
+                      "hover:bg-darkblue": post.color === "darkblue",
                     }
                   )}
                 >
@@ -377,5 +378,56 @@ const SocialSection = () => {
 };
 
 const BlogSection = () => {
-  return <div>Articles Section</div>;
+  const articles = [
+    {
+      id: 1,
+      title: "Happy International Babywearing week!",
+      des: "Hear from experienced babywearing mamas...",
+      src: "/assets/images/image 114.png",
+    },
+    {
+      id: 2,
+      title: "8 Tips for New Moms: Surviving the First Weeks",
+      des: "The first few weeks at home with a newborn baby can be a roller coaster—physically, emotionally, and mentally. Here are our uncut, unfiltered tips for new moms for surviving those first couple of weeks with your newborn.",
+      src: "/assets/images/image 115.png",
+    },
+  ];
+  return (
+    <div className="px-5 pt-16 lg:px-48">
+      <h3 className="py-10 text-center font-josefin text-base font-semibold uppercase leading-7">
+        Popular Articles in Our Parents magazine
+      </h3>
+
+      <div>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          {articles?.map((article, id) => (
+            <div>
+              <div key={id} className="relative h-72 lg:h-[500px]">
+                <Image
+                  src={article.src}
+                  alt={article.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <div>
+                <h1 className="py-4 font-josefin text-lg font-normal lg:text-2xl lg:leading-10">
+                  {article.title}
+                </h1>
+                <p className="font-mulish text-sm font-normal lg:text-base ">
+                  {article.des}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div></div>
+      </div>
+
+      <Link href={"#"} className="flex justify-center py-14">
+        <Button varient="primary">READ ALL ARTICLES</Button>
+      </Link>
+    </div>
+  );
 };
