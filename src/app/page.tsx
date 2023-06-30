@@ -60,7 +60,7 @@ const HeroSection = () => {
   };
   return (
     <>
-      <div className="hero relative overflow-x-clip md:h-[450px] lg:h-[800px]">
+      <div className="hero relative h-[450px] overflow-x-clip lg:h-[800px]">
         <Slider ref={settingsRef} {...settings}>
           {heroImage?.map(({ id, link, alt }) => (
             <div className="relative h-[450px] lg:h-[800px]" key={id}>
@@ -82,7 +82,7 @@ const HeroSection = () => {
             <h1 className="font font-josefin text-3xl font-semibold lg:text-5xl lg:leading-[65px]">
               King's Day 2023!
             </h1>
-            <p className="max-w-xs font-mulish text-base md:max-w-sm lg:text-lg lg:leading-7">
+            <p className="max-w-xs text-center font-mulish text-base md:max-w-sm md:text-start lg:text-lg lg:leading-7">
               Our market starts at noon. You receive a 25% discount with the
               code SFG500 on selected wraps and ring slings.
             </p>
@@ -92,13 +92,13 @@ const HeroSection = () => {
         <div className="absolute bottom-0 top-0 my-auto h-fit w-full">
           <div className="flex justify-between px-4 lg:px-10">
             <div
-              className="h-7 w-7 hover:cursor-pointer hover:text-red lg:h-10 lg:w-10"
+              className="h-7 w-7 text-cream hover:cursor-pointer hover:text-red lg:h-10 lg:w-10"
               onClick={PreviousImg}
             >
               <CheveronLeftIcon />
             </div>
             <div
-              className="h-7 w-7 hover:cursor-pointer hover:text-red lg:h-10 lg:w-10"
+              className="h-7 w-7 text-cream hover:cursor-pointer hover:text-red lg:h-10 lg:w-10"
               onClick={nextImg}
             >
               <CheveronRightIcon />
