@@ -92,13 +92,13 @@ const HeroSection = () => {
         <div className="absolute bottom-0 top-0 my-auto h-fit w-full">
           <div className="flex justify-between px-4 lg:px-10">
             <div
-              className="h-7 w-7 hover:cursor-pointer lg:h-10 lg:w-10"
+              className="h-7 w-7 hover:cursor-pointer hover:text-red lg:h-10 lg:w-10"
               onClick={PreviousImg}
             >
               <CheveronLeftIcon />
             </div>
             <div
-              className="h-7 w-7 hover:cursor-pointer lg:h-10 lg:w-10"
+              className="h-7 w-7 hover:cursor-pointer hover:text-red lg:h-10 lg:w-10"
               onClick={nextImg}
             >
               <CheveronRightIcon />
