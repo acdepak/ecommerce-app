@@ -33,7 +33,7 @@ const HeroSection = () => {
   const settingsRef = createRef<Slider>();
 
   const settings = {
-    dotsClass: "slick-dots !flex gap-8 justify-center items-center ",
+    dotsClass: "slick-dots !flex gap-8 !pb-10 justify-center items-center ",
     slidesToScroll: 1,
     slidesToShow: 1,
     autoplay: false,
@@ -60,10 +60,10 @@ const HeroSection = () => {
   };
   return (
     <>
-      <div className="hero relative h-[80vh] overflow-x-clip">
+      <div className="hero relative overflow-x-clip md:h-[450px] lg:h-[800px]">
         <Slider ref={settingsRef} {...settings}>
           {heroImage?.map(({ id, link, alt }) => (
-            <div className="relative h-[80vh]" key={id}>
+            <div className="relative h-[450px] lg:h-[800px]" key={id}>
               <Image
                 src={link}
                 alt={alt}
@@ -72,15 +72,17 @@ const HeroSection = () => {
                 className="object-cover"
                 quality={100}
               />
+              <div className="absolute top-0 h-full w-full bg-black/50 md:hidden" />
             </div>
           ))}
         </Slider>
-        <div className="absolute bottom-0 right-72 top-0 my-auto h-fit">
-          <div className="flex flex-col gap-5 text-cream">
-            <h1 className="font font-josefin text-5xl font-semibold leading-[65px]">
+
+        <div className="absolute bottom-14 left-0 right-0 top-0 m-auto h-fit md:bottom-0 md:left-auto md:right-10 lg:right-72">
+          <div className="flex flex-col items-center gap-5 text-cream md:items-start">
+            <h1 className="font font-josefin text-3xl font-semibold lg:text-5xl lg:leading-[65px]">
               King's Day 2023!
             </h1>
-            <p className="max-w-sm font-mulish text-lg leading-7">
+            <p className="max-w-xs font-mulish text-base md:max-w-sm lg:text-lg lg:leading-7">
               Our market starts at noon. You receive a 25% discount with the
               code SFG500 on selected wraps and ring slings.
             </p>
@@ -88,14 +90,17 @@ const HeroSection = () => {
           </div>
         </div>
         <div className="absolute bottom-0 top-0 my-auto h-fit w-full">
-          <div className="flex justify-between px-10">
+          <div className="flex justify-between px-4 lg:px-10">
             <div
-              className="h-10 w-10 hover:cursor-pointer"
+              className="h-7 w-7 hover:cursor-pointer lg:h-10 lg:w-10"
               onClick={PreviousImg}
             >
               <CheveronLeftIcon />
             </div>
-            <div className="h-10 w-10 hover:cursor-pointer" onClick={nextImg}>
+            <div
+              className="h-7 w-7 hover:cursor-pointer lg:h-10 lg:w-10"
+              onClick={nextImg}
+            >
               <CheveronRightIcon />
             </div>
           </div>
@@ -352,21 +357,30 @@ const SocialSection = () => {
               <div className="absolute top-0 h-[200px] w-[220px] lg:h-[440px] lg:w-[480px] ">
                 <div
                   className={clsx(
-                    "flex h-full flex-col items-center justify-center gap-5 text-white opacity-0 hover:opacity-100 lg:gap-10",
+                    "flex h-full w-full flex-col items-center justify-center gap-3 text-white opacity-0 hover:opacity-100 lg:gap-6",
                     {
                       "hover:bg-red": post.color === "red",
                       "hover:bg-darkblue": post.color === "darkblue",
                     }
                   )}
                 >
-                  <div className="h-10 w-10 text-white lg:h-20 lg:w-20">
+                  <div className="h-7 w-7 text-white lg:h-14 lg:w-14">
                     {post.icon}
                   </div>
-                  <div className="flex flex-col items-center gap-2 lg:gap-5">
-                    <p>{post.likes}</p>
-                    <p>{post.text}</p>
+                  <div className="flex flex-col items-center gap-1 lg:gap-3">
+                    <p className="lg:text:2xl font-josefin text-lg font-normal lg:text-2xl">
+                      {post.likes}
+                    </p>
+                    <p className="font-mulish text-sm font-normal lg:text-base">
+                      {post.text}
+                    </p>
                   </div>
-                  {post.tag}
+                  <Link
+                    href="https://www.facebook.com/slingforbabies"
+                    className="font-mulish text-xs font-normal lg:text-base"
+                  >
+                    {post.tag}
+                  </Link>
                 </div>
               </div>
             </div>
