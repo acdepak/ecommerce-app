@@ -14,3 +14,18 @@
     rgba(0, 0, 0, 0) 100%
   );
 }
+
+.hero .slick-dots li {
+  background-color: #f8f2ec;
+  border-radius: 100%;
+  margin-bottom: 2.8rem;
+  height: 1.3rem;
+  width: 1.3rem;
+}
+
+.hero .slick-dots .slick-active {
+  background-color: transparent;
+  border: 2px solid #f8f2ec;
+  height: 1.5rem;
+  width: 1.5rem;
+}

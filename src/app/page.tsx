@@ -33,7 +33,10 @@ const HeroSection = () => {
   const settingsRef = createRef<Slider>();
 
   const settings = {
-    dotsClass: "slick-dots !flex gap-8 !pb-10 justify-center items-center ",
+    customPaging: function () {
+      return <div className="h-full w-full" />;
+    },
+    dotsClass: "slick-dots !flex gap-10 justify-center ",
     slidesToScroll: 1,
     slidesToShow: 1,
     autoplay: false,

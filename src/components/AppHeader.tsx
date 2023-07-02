@@ -14,11 +14,46 @@ import Link from "next/link";
 import { useState } from "react";
 
 const menuItems = [
-  { id: 1, title: "Wraps", link: "#" },
-  { id: 2, title: "Carriers", link: "#" },
-  { id: 3, title: "Accessories", link: "#" },
-  { id: 4, title: "For you", link: "#" },
-  { id: 5, title: "Kids", link: "#" },
+  {
+    id: 1,
+    title: "Wraps",
+    subMenu: [
+      { id: 1, title: "title1", link: "#" },
+      { id: 2, title: "title11", link: "#" },
+    ],
+  },
+  {
+    id: 2,
+    title: "Carriers",
+    subMenu: [
+      { id: 1, title: "title1", link: "#" },
+      { id: 2, title: "title11", link: "#" },
+    ],
+  },
+  {
+    id: 3,
+    title: "Accessories",
+    subMenu: [
+      { id: 1, title: "title1", link: "#" },
+      { id: 2, title: "title11", link: "#" },
+    ],
+  },
+  {
+    id: 4,
+    title: "For you",
+    subMenu: [
+      { id: 1, title: "title1", link: "#" },
+      { id: 2, title: "title11", link: "#" },
+    ],
+  },
+  {
+    id: 5,
+    title: "Kids",
+    subMenu: [
+      { id: 1, title: "title1", link: "#" },
+      { id: 2, title: "title11", link: "#" },
+    ],
+  },
 ];
 
 export const AppHeader = () => {
@@ -206,6 +241,7 @@ const Menu = () => {
             </div>
           </div>
         ))}
+        <div className="hidden group-hover:flex">{}</div>
       </div>
       <Link href="#" className="font-mulish text-lg leading-7 hover:text-red">
         Sale
