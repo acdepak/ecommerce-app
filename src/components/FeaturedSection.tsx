@@ -6,14 +6,14 @@ export const FeaturedSection = () => {
   return (
     <div>
       {/*  */}
-      <div className="flex flex-col-reverse items-center justify-center gap-10 bg-cream py-16 md:flex-row lg:gap-52 lg:py-40 ">
-        {/*  */}
-        <div className="flex w-full justify-end pl-10 lg:w-1/3">
+      <div className="flex flex-col-reverse items-center justify-center gap-10 bg-cream py-16 md:flex-row lg:gap-40 lg:py-40 xl:gap-52 ">
+        {/**/}
+        <div className="xl:1/3 flex w-full justify-end pl-10 lg:w-1/3">
           <div className="flex flex-col items-start gap-5 lg:gap-8 ">
             {/* <h2 className="max-w-sm font-josefin text-3xl font-semibold lg:text-5xl lg:leading-[60px]">
               Find your perfect baby carrier!
             </h2> */}
-            <Typography varient="heading1" width="sm">
+            <Typography varient="heading1" width="lg">
               Find your perfect baby carrier!
             </Typography>
             {/* <p className="max-w-sm font-mulish text-base lg:text-lg lg:leading-7">
@@ -21,7 +21,7 @@ export const FeaturedSection = () => {
               overwhelming as a first time parent or caregiver. Our aim is to
               make your babywearing journey easy and enjoyable!
             </p> */}
-            <Typography varient="body1" width="lg">
+            <Typography varient="body1" width="md">
               Babywearing is an amazing parenting tool but it can be
               overwhelming as a first time parent or caregiver. Our aim is to
               make your babywearing journey easy and enjoyable!
@@ -30,8 +30,8 @@ export const FeaturedSection = () => {
           </div>
         </div>
 
-        <div className="w-full md:pr-5 lg:w-1/2">
-          <div className="relative h-[45vh] lg:w-[681px]">
+        <div className="w-full md:pr-5 lg:w-1/3">
+          <div className="relative h-[438px] lg:max-w-[581px] xl:max-w-[681px]">
             <Image
               src="/assets/images/image 106.png"
               alt="Gray Sling"
@@ -45,9 +45,9 @@ export const FeaturedSection = () => {
       </div>
 
       <div className="bg-darkblue py-16 lg:py-5 ">
-        <div className="flex flex-col  items-center justify-center gap-5 md:flex-row lg:relative lg:bottom-20 lg:items-end lg:gap-52 lg:pl-40">
+        <div className="flex flex-col  items-center justify-center gap-5 md:flex-row lg:relative lg:bottom-20 lg:items-end lg:gap-40 lg:pl-40 xl:gap-52">
           {/*  */}
-          <div className="w-full md:w-1/2 md:pl-5 lg:flex lg:w-1/3 lg:justify-end">
+          <div className="w-full md:w-1/2 md:pl-5 lg:flex lg:w-1/3 lg:pl-0 xl:justify-end">
             <div className="relative h-[400px] lg:h-[668px] lg:w-[440px]">
               <Image
                 src="/assets/images/image 107.png"
