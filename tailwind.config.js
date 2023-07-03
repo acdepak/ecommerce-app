@@ -13,12 +13,22 @@ module.exports = {
         poppins: ["Poppins", "sans-serif"],
       },
       colors: {
+        dark: "#2b2b2b",
+        grayhard: "#b5b2b2",
+        gray: "#f3f3f3",
+
+        cream: "#F8F2EC",
+
+        yellow: "#FFC84A",
+        red: "#C2463B",
+
         lightblue: "#86C1CF",
         sky: "#0097D8",
         darkblue: "#22374A",
-        cream: "#F8F2EC",
-        red: "#C2463B",
-        yellow: "#FFC84A",
+      },
+      fontSize: {
+        "5xl": ["3rem", "55px"],
+        "6xl": ["60px", "65px"],
       },
     },
   },
