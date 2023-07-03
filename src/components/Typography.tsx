@@ -27,7 +27,7 @@ interface TypographyProps extends React.HTMLAttributes<HTMLAnchorElement> {
     | "body";
   color?: "dark" | "sky";
   center?: boolean;
-  width?: "xs" | "sm" | "lg";
+  width?: "xs" | "sm" | "md" | "lg";
 }
 
 export const Typography: React.FunctionComponent<TypographyProps> = ({
@@ -66,6 +66,7 @@ export const Typography: React.FunctionComponent<TypographyProps> = ({
         varient === "body1" || varient === "body" || varient === "social",
       "text-center": center,
       "max-w-lg": width === "lg",
+      "max-w-md": width === "md",
       "max-w-sm": width === "sm",
       "max-w-xs": width === "xs",
       "text-dark": color === "dark",
