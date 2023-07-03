@@ -59,6 +59,8 @@ const menuItems = [
 export const AppHeader = () => {
   const [openSearch, setOpenSearch] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
+
+  const Search = () => {}; // What and How to search
   const SearchBox = () => {
     return (
       <div className="flex items-center rounded-full border border-black bg-white px-4">
@@ -67,13 +69,23 @@ export const AppHeader = () => {
           placeholder="Search"
           className="h-9 font-mulish text-base leading-6 focus:outline-none"
         />
-        <div className="h-5 w-5 hover:text-red" onClick={Search}>
+        <div
+          className="h-5 w-5 hover:cursor-pointer hover:text-red"
+          onClick={Search}
+        >
           <SearchIcon />
         </div>
       </div>
     );
   };
-  const Search = () => {}; // What and How to search
+
+  const Language = [
+    { id: 0, lang: "English", action: "#" },
+    { id: 1, lang: "English - AUS", action: "#" },
+    { id: 2, lang: "English - India", action: "#" },
+    { id: 3, lang: "English - UK", action: "#" },
+    { id: 4, lang: "English - US", action: "#" },
+  ];
 
   return (
     <main className="relative flex flex-col gap-7 pt-6">
@@ -137,16 +149,28 @@ export const AppHeader = () => {
           </div>
 
           {/* lg: top right section; md: basket icon */}
-          <div className="hidden items-center gap-2 hover:text-red lg:flex">
-            <p className="font-mulish text-base leading-6 ">English</p>
-            <div className="h-1 w-3">
-              <CheveronDownIcon />
+          <div className="group flex flex-col">
+            <div className="hidden items-center gap-2 hover:cursor-pointer hover:text-red lg:flex">
+              <p className="font-mulish text-base leading-6 ">English</p>
+              <div className="h-1 w-3">
+                <CheveronDownIcon />
+              </div>
+            </div>
+            <div className="absolute mt-6 hidden flex-col rounded-lg bg-gray py-3 pl-2 pr-5 font-josefin group-hover:flex ">
+              {Language.map((item, id) => (
+                <div className=" hover:cursor-pointer hover:text-red" key={id}>
+                  {item.lang}
+                </div>
+              ))}
             </div>
           </div>
 
-          <p className="hidden font-mulish text-base leading-6 hover:text-red lg:block">
+          <Link
+            href={"/account"}
+            className="hidden font-mulish text-base leading-6 hover:text-red lg:block"
+          >
             My Account
-          </p>
+          </Link>
           {/* Basket */}
           <Link href="/" className="flex items-center gap-2 hover:text-red">
             <div className="w-6">
@@ -182,7 +206,8 @@ export const AppHeader = () => {
 
       {/* sm:Menu */}
       <div
-        className={clsx("fixed top-0 z-10 flex h-full w-full", {
+        onClick={() => setOpenMenu(false)}
+        className={clsx("fixed top-0 z-10 flex h-full w-full lg:hidden", {
           hidden: !openMenu,
         })}
       >
@@ -201,15 +226,31 @@ export const AppHeader = () => {
               </div>
             </Link>
 
-            <div>
-              {menuItems?.map((item, id) => (
+            <div className="flex flex-col items-start justify-center gap-7">
+              {menuItems.map((item) => (
                 <div
-                  key={id}
-                  className="flex items-center gap-2 py-2 hover:cursor-pointer hover:text-red"
+                  key={item.id}
+                  className="group flex flex-col items-start justify-start"
                 >
-                  <p className="font-mulish text-lg leading-7 ">{item.title}</p>
-                  <div className="h-1 w-3">
-                    <CheveronDownIcon />
+                  <div className="flex items-center gap-2 hover:cursor-pointer hover:text-red">
+                    <p className="font-mulish text-4xl leading-7 ">
+                      {item.title}
+                    </p>
+                    <div className="h-2 w-6">
+                      <CheveronDownIcon />
+                    </div>
+                  </div>
+
+                  <div className="hidden flex-col gap-1 capitalize group-hover:flex">
+                    {item.subMenu?.map((subitem, id) => (
+                      <Link
+                        key={item.id}
+                        href={subitem.link}
+                        className="pl-3 pt-3 font-mulish text-xl font-medium leading-7 hover:text-red"
+                      >
+                        {subitem.title}
+                      </Link>
+                    ))}
                   </div>
                 </div>
               ))}
@@ -218,7 +259,7 @@ export const AppHeader = () => {
         </div>
 
         <div
-          onClick={() => setOpenMenu(false)}
+          // onClick={() => setOpenMenu(false)}
           className="absolute top-0 h-full w-full bg-black/50"
         />
       </div>
@@ -233,15 +274,28 @@ const Menu = () => {
         {menuItems.map((item) => (
           <div
             key={item.id}
-            className="flex items-center gap-2 hover:cursor-pointer hover:text-red"
+            className="group flex flex-col items-start justify-start"
           >
-            <p className="font-mulish text-lg leading-7 ">{item.title}</p>
-            <div className="h-1 w-3">
-              <CheveronDownIcon />
+            <div className="flex items-center gap-2 hover:cursor-pointer hover:text-red">
+              <p className="font-mulish text-lg leading-7 ">{item.title}</p>
+              <div className="h-1 w-3">
+                <CheveronDownIcon />
+              </div>
+            </div>
+
+            <div className="absolute z-10 mt-7 hidden flex-col gap-1 rounded-lg bg-gray py-3 pl-3 pr-5 capitalize group-hover:flex">
+              {item.subMenu?.map((subitem, id) => (
+                <Link
+                  key={item.id}
+                  href={subitem.link}
+                  className="pt-1 font-mulish text-lg font-medium leading-7 tracking-wider hover:text-red"
+                >
+                  {subitem.title}
+                </Link>
+              ))}
             </div>
           </div>
         ))}
-        <div className="hidden group-hover:flex">{}</div>
       </div>
       <Link href="#" className="font-mulish text-lg leading-7 hover:text-red">
         Sale
