@@ -1,5 +1,6 @@
 "use client";
 import { Button, FeaturedSection, ShopAllProd } from "@/components";
+import { Typography } from "@/components/Typography";
 import {
   CheveronLeftIcon,
   CheveronRightIcon,
@@ -82,13 +83,11 @@ const HeroSection = () => {
 
         <div className="absolute bottom-14 left-0 right-0 top-0 m-auto h-fit md:bottom-0 md:left-auto md:right-10 lg:right-72">
           <div className="flex flex-col items-center gap-5 text-cream md:items-start">
-            <h1 className="font font-josefin text-3xl font-semibold lg:text-5xl lg:leading-[65px]">
-              King's Day 2023!
-            </h1>
-            <p className="max-w-xs text-center font-mulish text-base md:max-w-sm md:text-start lg:text-lg lg:leading-7">
+            <Typography varient="heading1">King's Day 2023!</Typography>
+            <Typography varient="body1" width="sm">
               Our market starts at noon. You receive a 25% discount with the
               code SFG500 on selected wraps and ring slings.
-            </p>
+            </Typography>
             <ShopAllProd url="/" varient="hero" />
           </div>
         </div>
@@ -143,12 +142,10 @@ const WorkFlowSection = () => {
         >
           <div className="h-20 w-20 lg:h-24 lg:w-24">{work.icon}</div>
           <div className="flex flex-col gap-2">
-            <p className="text-center font-josefin font-semibold lg:font-bold lg:leading-10">
-              {work.title}
-            </p>
-            <p className="max-w-sm text-center font-mulish text-sm leading-6">
+            <Typography varient="heading4">{work.title}</Typography>
+            <Typography varient="body" width="sm" center className="leading-6">
               {work.des}
-            </p>
+            </Typography>
           </div>
         </div>
       ))}
@@ -234,12 +231,10 @@ const ProductSection = () => {
                   : "bottom-[10%] left-5 right-0 m-auto lg:left-20 lg:top-1/3 "
               }`}
             >
-              <p className="font-josefin text-2xl font-semibold leading-10 lg:text-4xl">
-                {img.title}
-              </p>
-              <p className="max-w-sm font-mulish text-base leading-6">
+              <Typography varient="heading2">{img.title}</Typography>
+              <Typography varient="body" width="sm" className="leading-6">
                 {img.des}
-              </p>
+              </Typography>
             </div>
           </div>
         ))}
@@ -339,15 +334,15 @@ const SocialSection = () => {
   ];
   return (
     <div>
-      <h3 className="py-10 text-center font-mulish text-4xl">
+      <Typography varient="social" center>
         Follow us on Facebook @SlingsForBabies
-      </h3>
-      <div className="grid grid-flow-row grid-cols-2 md:grid-cols-4">
+      </Typography>
+      <div className="grid grid-flow-row grid-cols-2 items-center justify-center md:grid-cols-4">
         {posts?.map((post, id) => (
           <>
             <div
               key={id}
-              className="relative h-[200px] w-[220px] lg:h-[440px] lg:w-[480px] "
+              className="relative h-[200px] min-w-[220px] lg:h-[440px] lg:w-[480px] "
             >
               <Image
                 src={post.link}
@@ -357,7 +352,7 @@ const SocialSection = () => {
                 className="object-cover"
                 quality={100}
               />
-              <div className="absolute top-0 h-[200px] w-[220px] lg:h-[440px] lg:w-[480px] ">
+              <div className="absolute top-0 h-[200px] min-w-full lg:h-[440px] lg:w-[480px] ">
                 <div
                   className={clsx(
                     "flex h-full w-full flex-col items-center justify-center gap-3 text-white opacity-0 hover:opacity-100 lg:gap-6",
@@ -411,9 +406,9 @@ const BlogSection = () => {
   ];
   return (
     <div className="px-5 pt-16 lg:px-48">
-      <h3 className="py-10 text-center font-josefin text-base font-semibold uppercase leading-7">
+      <Typography varient="heading5" center className="py-10 leading-7">
         Popular Articles in Our Parents magazine
-      </h3>
+      </Typography>
 
       <div>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
@@ -429,12 +424,10 @@ const BlogSection = () => {
                 />
               </div>
               <div>
-                <h1 className="py-4 font-josefin text-lg font-normal lg:text-2xl lg:leading-10">
+                <Typography varient="heading3" color="dark" className="py-4">
                   {article.title}
-                </h1>
-                <p className="font-mulish text-sm font-normal lg:text-base ">
-                  {article.des}
-                </p>
+                </Typography>
+                <Typography varient="body">{article.des}</Typography>
               </div>
             </div>
           ))}

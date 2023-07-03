@@ -1,3 +1,4 @@
+import brands from "@/data/brands.json";
 import {
   ArrowIcon,
   BelgiumFlagIcon,
@@ -91,14 +92,6 @@ const DeliverySection = () => {
 };
 
 const BrandsSection = () => {
-  const brands = [
-    { id: 1, src: "/assets/images/brand1.png", alt: "brand1" },
-    { id: 2, src: "/assets/images/brand2.png", alt: "brand2" },
-    { id: 3, src: "/assets/images/brand3.png", alt: "brand3" },
-    { id: 4, src: "/assets/images/brand4.png", alt: "brand4" },
-    { id: 5, src: "/assets/images/brand5.png", alt: "brand5" },
-    { id: 6, src: "/assets/images/brand6.png", alt: "brand6" },
-  ];
   return (
     <div className="flex flex-col gap-8 bg-darkblue pb-20 pt-9 text-center">
       <p className="font font-josefin text-base font-semibold text-white">
@@ -149,7 +142,7 @@ const FooterFooter = () => {
   ];
   return (
     <div className="flex items-center justify-center pb-10 pt-20">
-      <div className="container flex flex-col items-center gap-10 divide-y divide-gray-300 lg:px-28">
+      <div className="divide-gray-300 container flex flex-col items-center gap-10 divide-y lg:px-28">
         <div className="grid w-full grid-flow-row grid-cols-2 justify-center gap-y-10 pl-5 md:grid-cols-4 md:gap-x-5 md:pl-0 lg:grid-cols-3 lg:gap-x-52">
           {/*  */}
           <div>

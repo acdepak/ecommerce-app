@@ -10,7 +10,7 @@ interface props {
 
 export const Button = ({
   onClick,
-  disabled,
+  disabled = false,
   children,
   varient = "footer",
 }: props) => {
