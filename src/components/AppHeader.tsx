@@ -18,40 +18,43 @@ const menuItems = [
     id: 1,
     title: "Wraps",
     subMenu: [
-      { id: 1, title: "title1", link: "#" },
-      { id: 2, title: "title11", link: "#" },
+      { id: 1, title: "Yaro Flex", link: "#" },
+      { id: 2, title: "Tula", link: "#" },
+      { id: 3, title: "Storchewiege", link: "#" },
+      { id: 4, title: "Marsupi", link: "#" },
+      { id: 5, title: "Bondolino", link: "#" },
     ],
   },
   {
     id: 2,
     title: "Carriers",
     subMenu: [
-      { id: 1, title: "title1", link: "#" },
-      { id: 2, title: "title11", link: "#" },
+      { id: 1, title: "Storchewiege", link: "#" },
+      { id: 2, title: "Marsupi", link: "#" },
     ],
   },
   {
     id: 3,
     title: "Accessories",
     subMenu: [
-      { id: 1, title: "title1", link: "#" },
-      { id: 2, title: "title11", link: "#" },
+      { id: 1, title: "Bondolino", link: "#" },
+      { id: 2, title: "My Sol", link: "#" },
     ],
   },
   {
     id: 4,
     title: "For you",
     subMenu: [
-      { id: 1, title: "title1", link: "#" },
-      { id: 2, title: "title11", link: "#" },
+      { id: 1, title: "Tula", link: "#" },
+      { id: 2, title: "Storchewiege", link: "#" },
     ],
   },
   {
     id: 5,
     title: "Kids",
     subMenu: [
-      { id: 1, title: "title1", link: "#" },
-      { id: 2, title: "title11", link: "#" },
+      { id: 1, title: "Bondolino", link: "#" },
+      { id: 2, title: "Marsupi", link: "#" },
     ],
   },
 ];
@@ -88,8 +91,8 @@ export const AppHeader = () => {
   ];
 
   return (
-    <main className="relative flex flex-col gap-7 pt-6">
-      <div className="flex px-5 pb-5 lg:px-10  lg:pb-0 xl:px-20">
+    <main className="relative flex flex-col pt-6">
+      <div className="flex px-5 pb-5 lg:px-10 lg:pb-0 xl:px-20">
         {/* top left section */}
         <div className="hidden w-full items-center justify-start gap-5 lg:flex ">
           <SearchBox />
@@ -116,7 +119,7 @@ export const AppHeader = () => {
           <div className="h-7 w-7 hover:text-red">
             <MenuIcon />
           </div>
-          <p className="font-mulish  font-semibold md:text-lg">MENU</p>
+          <p className="font-mulish font-semibold md:text-lg">MENU</p>
         </div>
 
         {/* Logo Image */}
@@ -191,7 +194,7 @@ export const AppHeader = () => {
 
       {/* sm:Search Bar appear/disappear */}
       <div
-        className={clsx("fixed top-0 z-10 flex min-h-screen w-full md:hidden", {
+        className={clsx("fixed top-0 z-20 flex min-h-screen w-full md:hidden", {
           hidden: !openSearch,
         })}
       >
@@ -206,14 +209,14 @@ export const AppHeader = () => {
 
       {/* sm:Menu */}
       <div
-        onClick={() => setOpenMenu(false)}
-        className={clsx("fixed top-0 z-10 flex h-full w-full lg:hidden", {
+        // onClick={() => setOpenMenu(false)}
+        className={clsx("fixed top-[8.2%] z-10 flex h-full w-full lg:hidden", {
           hidden: !openMenu,
         })}
       >
         <div className="z-50 min-h-screen w-3/4 bg-white">
           <div className="flex flex-col items-start gap-20 px-10 pt-10">
-            <Link href="/" className="flex justify-center ">
+            {/* <Link href="/" className="flex justify-center ">
               <div className="relative h-16 w-40 ">
                 <Image
                   src="/assets/images/Logo.png"
@@ -224,7 +227,7 @@ export const AppHeader = () => {
                   quality={100}
                 />
               </div>
-            </Link>
+            </Link> */}
 
             <div className="flex flex-col items-start justify-center gap-7">
               {menuItems.map((item) => (
@@ -259,7 +262,7 @@ export const AppHeader = () => {
         </div>
 
         <div
-          // onClick={() => setOpenMenu(false)}
+          onClick={() => setOpenMenu(false)}
           className="absolute top-0 h-full w-full bg-black/50"
         />
       </div>
