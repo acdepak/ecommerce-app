@@ -1,5 +1,4 @@
 "use client";
-
 import { Typography } from "@/components/Typography";
 import { CryFaceIcon } from "@/icons";
 import Link from "next/link";
@@ -13,7 +12,7 @@ export default function PageNotFound() {
       <Typography varient="heading1" center className="max-w-4xl">
         The page you are looking for does not exist&#40;
       </Typography>
-      <Typography varient="body1">
+      <Typography varient="body1" center>
         We apologize for the inconvenience...
       </Typography>
       <Link href="/">
