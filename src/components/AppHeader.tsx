@@ -307,7 +307,7 @@ const Menu = () => {
         New
       </Link>
       <Link
-        href="#"
+        href="/gift"
         className="flex items-center justify-center gap-2 hover:text-red"
       >
         <div className="h-3 w-4 ">
