@@ -1,6 +1,7 @@
 "use client";
 import { Button, FeaturedSection, ShopAllProd } from "@/components";
 import { Typography } from "@/components/Typography";
+import posts from "@/data/posts.json";
 import {
   CheveronLeftIcon,
   CheveronRightIcon,
@@ -142,7 +143,9 @@ const WorkFlowSection = () => {
         >
           <div className="h-20 w-20 lg:h-24 lg:w-24">{work.icon}</div>
           <div className="flex flex-col gap-2">
-            <Typography varient="heading4">{work.title}</Typography>
+            <Typography varient="heading4" center>
+              {work.title}
+            </Typography>
             <Typography varient="body" width="sm" center className="leading-6">
               {work.des}
             </Typography>
@@ -250,88 +253,6 @@ const ProductSection = () => {
 };
 
 const SocialSection = () => {
-  const posts = [
-    {
-      id: 1,
-      link: "/assets/images/image 108.png",
-      alt: "image 108",
-      text: "Likes",
-      likes: "14,900",
-      icon: <LikeIcon />,
-      tag: "@SlingForBabies",
-      color: "red",
-    },
-    {
-      id: 2,
-      link: "/assets/images/image 107.png",
-      alt: "image 107",
-      text: "Likes",
-      likes: "14,900",
-      icon: <LikeIcon />,
-      tag: "@SlingForBabies",
-      color: "red",
-    },
-    {
-      id: 3,
-      link: "/assets/images/image 109.png",
-      alt: "image 109",
-      text: "Likes",
-      likes: "14,900",
-      icon: <LikeIcon />,
-      tag: "@SlingForBabies",
-      color: "red",
-    },
-    {
-      id: 4,
-      link: "/assets/images/image 110.png",
-      alt: "image 110",
-      text: "Likes",
-      likes: "14,900",
-      icon: <LikeIcon />,
-      tag: "@SlingForBabies",
-      color: "red",
-    },
-    {
-      id: 5,
-      link: "/assets/images/image 111.png",
-      alt: "image 111",
-      text: "People Follow Us",
-      likes: "10,264",
-      icon: <FacebookIcon />,
-      tag: "@SlingForBabies",
-      color: "darkblue",
-    },
-    {
-      id: 6,
-      link: "/assets/images/image 112.png",
-      alt: "image 112",
-      text: "People Follow Us",
-      likes: "10,264",
-      icon: <FacebookIcon />,
-      tag: "@SlingForBabies",
-      color: "darkblue",
-    },
-    {
-      id: 7,
-      link: "/assets/images/image 105.png",
-      alt: "image 105",
-      text: "People Follow Us",
-      likes: "10,264",
-      icon: <FacebookIcon />,
-      tag: "@SlingForBabies",
-      color: "darkblue",
-    },
-    {
-      id: 8,
-      link: "/assets/images/image 113.png",
-      alt: "image 113",
-      text: "People Follow Us",
-      likes: "10,264",
-      icon: <FacebookIcon />,
-      tag: "@SlingForBabies",
-      color: "darkblue",
-    },
-  ];
   return (
     <div>
       <Typography varient="social" center>
@@ -363,7 +284,7 @@ const SocialSection = () => {
                   )}
                 >
                   <div className="h-7 w-7 text-white lg:h-14 lg:w-14">
-                    {post.icon}
+                    {post.icon === "like" ? <LikeIcon /> : <FacebookIcon />}
                   </div>
                   <div className="flex flex-col items-center gap-1 lg:gap-3">
                     <p className="lg:text:2xl font-josefin text-lg font-normal lg:text-2xl">
