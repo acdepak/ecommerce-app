@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "link": "/assets/images/image 108.png",
+    "alt": "image 107",
+    "text": "People Follow Us",
+    "likes": "14,900",
+    "icon": "faceIcon",
+    "tag": "@SlingForBabies",
+    "color": "darkblue"
+  },
+  {
+    "id": 2,
+    "link": "/assets/images/image 111.png",
+    "alt": "image 107",
+    "text": "People Follow Us",
+    "likes": "14,900",
+    "icon": "faceIcon",
+    "tag": "@SlingForBabies",
+    "color": "darkblue"
+  },
+  {
+    "id": 3,
+    "link": "/assets/images/image 109.png",
+    "alt": "image 109",
+    "text": "People Follow Us",
+    "likes": "14,900",
+    "icon": "faceIcon",
+    "tag": "@SlingForBabies",
+    "color": "darkblue"
+  },
+  {
+    "id": 4,
+    "link": "/assets/images/image 113.png",
+    "alt": "image 110",
+    "text": "People Follow Us",
+    "likes": "14,900",
+    "icon": "faceIcon",
+    "tag": "@SlingForBabies",
+    "color": "darkblue"
+  }
+]

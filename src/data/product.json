@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "src": "/assets/images/image 101.png",
+    "link": "/",
+    "title": "Yaro flex back panel pussycat fluffy silver beige",
+    "price": 45.0,
+    "stock": true
+  },
+  {
+    "id": 2,
+    "src": "/assets/images/image 105.png",
+    "link": "/",
+    "title": "Yaro flex back panel pussycat fluffy silver beige",
+    "price": 56.0,
+    "stock": true
+  },
+  {
+    "id": 3,
+    "src": "/assets/images/image 107.png",
+    "link": "/",
+    "title": "Yaro flex back panel pussycat fluffy silver beige",
+    "price": 41.0,
+    "stock": false
+  },
+  {
+    "id": 4,
+    "src": "/assets/images/image 108.png",
+    "link": "/",
+    "title": "Yaro flex back panel pussycat fluffy silver beige",
+    "price": 108.0,
+    "stock": true
+  },
+  {
+    "id": 5,
+    "src": "/assets/images/image 109.png",
+    "link": "/",
+    "title": "Yaro flex back panel pussycat fluffy silver beige",
+    "price": 149.0,
+    "stock": true
+  },
+  {
+    "id": 6,
+    "src": "/assets/images/image 110.png",
+    "link": "/",
+    "title": "Yaro flex back panel pussycat fluffy silver beige",
+    "price": 95.0,
+    "stock": true
+  },
+  {
+    "id": 7,
+    "src": "/assets/images/image 111.png",
+    "link": "/",
+    "title": "Yaro flex back panel pussycat fluffy silver beige",
+    "price": 276.0,
+    "stock": true
+  },
+  {
+    "id": 8,
+    "src": "/assets/images/image 112.png",
+    "link": "/",
+    "title": "Yaro flex back panel pussycat fluffy silver beige",
+    "price": 289.0,
+    "stock": true
+  }
+]
