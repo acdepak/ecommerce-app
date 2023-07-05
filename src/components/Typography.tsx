@@ -25,7 +25,7 @@ interface TypographyProps extends React.HTMLAttributes<HTMLAnchorElement> {
     | "social"
     | "body1"
     | "body";
-  color?: "dark" | "sky";
+  color?: "dark" | "sky" | "red";
   center?: boolean;
   width?: "xs" | "sm" | "md" | "lg";
 }
@@ -50,7 +50,7 @@ export const Typography: React.FunctionComponent<TypographyProps> = ({
         varient === "heading2",
       "py-10 text-2xl lg:text-4xl": varient === "social",
       "text-lg font-normal lg:text-2xl lg:leading-10 ": varient === "heading3",
-      "text-center font-semibold lg:font-bold lg:leading-10":
+      "font-semibold lg:font-bold lg:leading-10 text-base lg:text-lg":
         varient === "heading4",
       "text-sm font-normal lg:text-base font-semibold uppercase":
         varient === "heading5",
@@ -71,6 +71,7 @@ export const Typography: React.FunctionComponent<TypographyProps> = ({
       "max-w-xs": width === "xs",
       "text-dark": color === "dark",
       "text-sky": color === "sky",
+      "text-red": color === "red",
     },
     `${className ? className : ""}`
   );
