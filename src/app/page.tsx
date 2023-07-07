@@ -85,7 +85,7 @@ const HeroSection = () => {
         <div className="absolute bottom-14 left-0 right-0 top-0 m-auto h-fit md:bottom-0 md:left-auto md:right-10 lg:right-72">
           <div className="flex flex-col items-center gap-5 text-cream md:items-start">
             <Typography varient="heading1">King's Day 2023!</Typography>
-            <Typography varient="body1" width="sm">
+            <Typography varient="body1" width="sm" className="md:text-start">
               Our market starts at noon. You receive a 25% discount with the
               code SFG500 on selected wraps and ring slings.
             </Typography>

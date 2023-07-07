@@ -25,9 +25,18 @@ interface TypographyProps extends React.HTMLAttributes<HTMLAnchorElement> {
     | "social"
     | "body1"
     | "body";
-  color?: "dark" | "sky" | "red";
+  color?:
+    | "dark"
+    | "sky"
+    | "red"
+    | "gray"
+    | "grayhard"
+    | "yellow"
+    | "lightblue"
+    | "darkblue"
+    | "cream";
   center?: boolean;
-  width?: "xs" | "sm" | "md" | "lg";
+  width?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
 }
 
 export const Typography: React.FunctionComponent<TypographyProps> = ({
@@ -54,7 +63,7 @@ export const Typography: React.FunctionComponent<TypographyProps> = ({
         varient === "heading4",
       "text-sm font-normal lg:text-base font-semibold uppercase":
         varient === "heading5",
-      "text-base md:text-start lg:text-lg lg:leading-7": varient === "body1",
+      "text-base lg:text-lg lg:leading-7": varient === "body1",
       "text-sm lg:text-base ": varient === "body",
       "font-josefin":
         varient === "heading1" ||
@@ -65,13 +74,22 @@ export const Typography: React.FunctionComponent<TypographyProps> = ({
       "font-mulish":
         varient === "body1" || varient === "body" || varient === "social",
       "text-center": center,
+      "max-w-2xl": width === "2xl",
+      "max-w-xl": width === "xl",
       "max-w-lg": width === "lg",
       "max-w-md": width === "md",
       "max-w-sm": width === "sm",
       "max-w-xs": width === "xs",
+
       "text-dark": color === "dark",
       "text-sky": color === "sky",
       "text-red": color === "red",
+      "text-gray": color === "gray",
+      "text-grayhard": color === "grayhard",
+      "text-cream": color === "cream",
+      "text-yellow": color === "yellow",
+      "text-lightblue": color === "lightblue",
+      "text-darkblue": color === "darkblue",
     },
     `${className ? className : ""}`
   );

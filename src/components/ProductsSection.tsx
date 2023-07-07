@@ -1,24 +1,22 @@
 import product from "@/data/product.json";
 import { CrossIcon, TickIcon } from "@/icons";
 import Image from "next/image";
-import Link from "next/link";
 import { ReactNode } from "react";
 import { Typography } from "./Typography";
 
-export const Products = ({ children }: { children: ReactNode }) => {
+export const ProductsSection = ({ children }: { children: ReactNode }) => {
   return (
-    <div>
+    <div className="flex flex-col items-center">
       <Typography varient="heading5" center className="py-10 leading-7">
         {children}
       </Typography>
-      <div className="grid grid-flow-row grid-cols-2 items-center justify-center gap-x-5 px-20 md:grid-cols-4">
+      <div className="grid grid-flow-row grid-cols-1 items-center justify-center gap-x-5 gap-y-10 md:grid-cols-2 lg:grid-cols-4">
         {product?.slice(0, 4).map((post, id) => (
-          <Link
+          <div
             key={id}
-            href={post.link}
-            className="flex flex-col justify-center gap-5"
+            className="flex w-fit flex-col items-center justify-center gap-5 "
           >
-            <div className="relative h-[200px] min-w-[220px] lg:h-[440px] lg:w-[480px] ">
+            <div className="relative h-[541px] w-[360px] ">
               <Image
                 src={post.src}
                 alt={post.title}
@@ -29,7 +27,7 @@ export const Products = ({ children }: { children: ReactNode }) => {
               />
             </div>
             <div className="flex flex-col gap-2">
-              <Typography varient="body1">{post.title}</Typography>
+              <Typography varient="body">{post.title}</Typography>
               <div className="flex justify-between">
                 <div className="flex items-center justify-start gap-1">
                   <Typography varient="body">From:</Typography>
@@ -58,7 +56,7 @@ export const Products = ({ children }: { children: ReactNode }) => {
                 </div>
               </div>
             </div>
-          </Link>
+          </div>
         ))}
       </div>
     </div>
