@@ -16,6 +16,7 @@ export * from "./FacebookIcon";
 export * from "./FavouritesIcon";
 export * from "./GermanyFlagIcon";
 export * from "./GiftIcon";
+export * from "./HistoryIcon";
 export * from "./Information";
 export * from "./LikeIcon";
 export * from "./MenuIcon";
