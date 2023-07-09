@@ -15,46 +15,46 @@ import { useState } from "react";
 
 const menuItems = [
   {
-    id: 1,
+    id: 11,
     title: "Wraps",
     subMenu: [
-      { id: 1, title: "Yaro Flex", link: "#" },
-      { id: 2, title: "Tula", link: "#" },
-      { id: 3, title: "Storchewiege", link: "#" },
-      { id: 4, title: "Marsupi", link: "#" },
-      { id: 5, title: "Bondolino", link: "#" },
+      { id: 111, title: "Yaro Flex", link: "#" },
+      { id: 112, title: "Tula", link: "#" },
+      { id: 113, title: "Storchewiege", link: "#" },
+      { id: 114, title: "Marsupi", link: "#" },
+      { id: 115, title: "Bondolino", link: "#" },
     ],
   },
   {
-    id: 2,
+    id: 12,
     title: "Carriers",
     subMenu: [
-      { id: 1, title: "Storchewiege", link: "#" },
-      { id: 2, title: "Marsupi", link: "#" },
+      { id: 121, title: "Storchewiege", link: "#" },
+      { id: 122, title: "Marsupi", link: "#" },
     ],
   },
   {
-    id: 3,
+    id: 13,
     title: "Accessories",
     subMenu: [
-      { id: 1, title: "Bondolino", link: "#" },
-      { id: 2, title: "My Sol", link: "#" },
+      { id: 131, title: "Bondolino", link: "#" },
+      { id: 132, title: "My Sol", link: "#" },
     ],
   },
   {
-    id: 4,
+    id: 14,
     title: "For you",
     subMenu: [
-      { id: 1, title: "Tula", link: "#" },
-      { id: 2, title: "Storchewiege", link: "#" },
+      { id: 141, title: "Tula", link: "#" },
+      { id: 142, title: "Storchewiege", link: "#" },
     ],
   },
   {
-    id: 5,
+    id: 15,
     title: "Kids",
     subMenu: [
-      { id: 1, title: "Bondolino", link: "#" },
-      { id: 2, title: "Marsupi", link: "#" },
+      { id: 151, title: "Bondolino", link: "#" },
+      { id: 152, title: "Marsupi", link: "#" },
     ],
   },
 ];
@@ -83,11 +83,11 @@ export const AppHeader = () => {
   };
 
   const Language = [
-    { id: 0, lang: "English", action: "#" },
-    { id: 1, lang: "English - AUS", action: "#" },
-    { id: 2, lang: "English - India", action: "#" },
-    { id: 3, lang: "English - UK", action: "#" },
-    { id: 4, lang: "English - US", action: "#" },
+    { id: 100, lang: "English", action: "#" },
+    { id: 101, lang: "English - AUS", action: "#" },
+    { id: 102, lang: "English - India", action: "#" },
+    { id: 103, lang: "English - UK", action: "#" },
+    { id: 104, lang: "English - US", action: "#" },
   ];
 
   return (
@@ -111,7 +111,7 @@ export const AppHeader = () => {
             Blog
           </Link>
         </div>
-        {/* sm: Menu */}
+        {/* sm: Menu show hide*/}
         <div
           onClick={() => setOpenMenu(!openMenu)}
           className="flex w-full items-center justify-start gap-2 lg:hidden"
@@ -169,7 +169,7 @@ export const AppHeader = () => {
           </div>
 
           <Link
-            href={"/login"}
+            href={"/account"}
             className="hidden font-mulish text-base leading-6 hover:text-red lg:block"
           >
             My Account
@@ -186,7 +186,11 @@ export const AppHeader = () => {
         </div>
       </div>
 
-      <div className="hidden lg:block">
+      <div
+        className={clsx("hidden lg:block", {
+          hidden: openSearch,
+        })}
+      >
         <Menu />
       </div>
 
@@ -289,7 +293,7 @@ const Menu = () => {
             <div className="absolute z-10 mt-7 hidden flex-col gap-1 rounded-lg bg-gray py-3 pl-3 pr-5 capitalize group-hover:flex">
               {item.subMenu?.map((subitem, id) => (
                 <Link
-                  key={item.id}
+                  key={id}
                   href={subitem.link}
                   className="pt-1 font-mulish text-lg font-medium leading-7 tracking-wider hover:text-red"
                 >
