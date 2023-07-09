@@ -93,7 +93,7 @@ const DeliverySection = () => {
 
 const BrandsSection = () => {
   return (
-    <div className="flex flex-col gap-8 bg-darkblue pb-20 pt-9 text-center">
+    <div className="flex flex-col gap-8 bg-darkblue pb-20 pt-9 text-center transition-colors duration-700 ease-linear hover:bg-red">
       <p className="font font-josefin text-base font-semibold text-white">
         OUR MOST VALUABLE BRANDS
       </p>
