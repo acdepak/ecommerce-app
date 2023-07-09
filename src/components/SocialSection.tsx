@@ -11,7 +11,7 @@ export const SocialSection = () => {
       <Typography varient="social" center>
         Follow us on Facebook @SlingsForBabies
       </Typography>
-      <div className="grid grid-flow-row grid-cols-2 items-center justify-center md:grid-cols-4">
+      <div className="grid grid-flow-row grid-cols-2 items-center justify-center overflow-clip md:grid-cols-4">
         {social?.map((post, id) => (
           <>
             <div
