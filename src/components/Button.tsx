@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { ReactEventHandler, ReactNode } from "react";
 
 interface props {
-  varient?: string;
+  varient?: "footer" | "login" | "primary";
   disabled?: boolean;
   children?: ReactNode;
   onClick?: ReactEventHandler;
@@ -22,7 +22,8 @@ export const Button = ({
         "rounded-full font-josefin text-sm font-bold leading-10",
         {
           "border border-black p-3 px-10 ": varient == "primary",
-          "bg-sky p-4 px-10 text-white": varient == "footer",
+          "bg-sky px-10 py-4 text-white": varient == "footer",
+          "bg-yellow px-40 py-3 tracking-widest": varient === "login",
         }
       )}
     >
