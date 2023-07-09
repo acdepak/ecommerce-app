@@ -169,7 +169,7 @@ export const AppHeader = () => {
           </div>
 
           <Link
-            href={"/account"}
+            href={"/login"}
             className="hidden font-mulish text-base leading-6 hover:text-red lg:block"
           >
             My Account
