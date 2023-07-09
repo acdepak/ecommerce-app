@@ -10,6 +10,8 @@ export * from "./CrossIcon";
 export * from "./CryFaceIcon";
 export * from "./EuIcon";
 export * from "./ExclamationIcon";
+export * from "./EyeClosedIcon";
+export * from "./EyeOpenIcon";
 export * from "./FacebookIcon";
 export * from "./FavouritesIcon";
 export * from "./GermanyFlagIcon";
