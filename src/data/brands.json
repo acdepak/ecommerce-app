@@ -1,8 +1,8 @@
 [
-  { "id": 1, "src": "/assets/images/brand1.png", "alt": "brand1" },
-  { "id": 2, "src": "/assets/images/brand2.png", "alt": "brand2" },
-  { "id": 3, "src": "/assets/images/brand3.png", "alt": "brand3" },
-  { "id": 4, "src": "/assets/images/brand4.png", "alt": "brand4" },
-  { "id": 5, "src": "/assets/images/brand5.png", "alt": "brand5" },
-  { "id": 6, "src": "/assets/images/brand6.png", "alt": "brand6" }
+  { "id": 200, "src": "/assets/images/brand1.png", "alt": "brand1" },
+  { "id": 201, "src": "/assets/images/brand2.png", "alt": "brand2" },
+  { "id": 202, "src": "/assets/images/brand3.png", "alt": "brand3" },
+  { "id": 203, "src": "/assets/images/brand4.png", "alt": "brand4" },
+  { "id": 204, "src": "/assets/images/brand5.png", "alt": "brand5" },
+  { "id": 205, "src": "/assets/images/brand6.png", "alt": "brand6" }
 ]

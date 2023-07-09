@@ -10,7 +10,7 @@ export const BreadCrumb = ({
   path: string;
 }) => {
   return (
-    <div className="flex flex-col items-center gap-5 bg-gray px-5 py-10 md:px-36">
+    <div className="flex w-full flex-col items-center gap-5 bg-gray px-5 py-10 md:px-36">
       <Typography varient="heading2" color="dark" center>
         {title}
       </Typography>
