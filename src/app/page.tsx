@@ -260,11 +260,8 @@ const SocialSection = () => {
       </Typography>
       <div className="grid grid-flow-row grid-cols-2 items-center justify-center md:grid-cols-4">
         {posts?.map((post, id) => (
-          <>
-            <div
-              key={id}
-              className="relative h-[200px] min-w-[220px] lg:h-[440px] lg:w-[480px] "
-            >
+          <div key={id}>
+            <div className="relative h-[200px] min-w-[220px] lg:h-[440px] lg:w-[480px] ">
               <Image
                 src={post.link}
                 alt={post.alt}
@@ -303,7 +300,7 @@ const SocialSection = () => {
                 </div>
               </div>
             </div>
-          </>
+          </div>
         ))}
       </div>
     </div>
@@ -334,8 +331,8 @@ const BlogSection = () => {
       <div>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {articles?.map((article, id) => (
-            <div>
-              <div key={id} className="relative h-72 lg:h-[500px]">
+            <div key={id}>
+              <div className="relative h-72 lg:h-[500px]">
                 <Image
                   src={article.src}
                   alt={article.title}

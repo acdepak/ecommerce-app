@@ -251,7 +251,7 @@ export const AppHeader = () => {
                   <div className="hidden flex-col gap-1 capitalize group-hover:flex">
                     {item.subMenu?.map((subitem, id) => (
                       <Link
-                        key={item.id}
+                        key={id}
                         href={subitem.link}
                         className="pl-3 pt-3 font-mulish text-xl font-medium leading-7 hover:text-red"
                       >
