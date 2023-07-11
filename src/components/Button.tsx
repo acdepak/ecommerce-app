@@ -19,11 +19,12 @@ export const Button = ({
       onClick={onClick}
       disabled={disabled}
       className={clsx(
-        "rounded-full font-josefin text-sm font-bold leading-10",
+        "flex h-14 items-center justify-center rounded-full font-josefin text-sm font-bold",
         {
-          "border border-black p-3 px-10 ": varient == "primary",
+          "border-2 border-dark p-3 px-10 ": varient == "primary",
           "bg-sky px-10 py-4 text-white": varient == "footer",
-          "bg-yellow px-40 py-3 tracking-widest": varient === "login",
+          "w-96 bg-yellow py-3 tracking-widest lg:w-[460px]":
+            varient === "login",
         }
       )}
     >
