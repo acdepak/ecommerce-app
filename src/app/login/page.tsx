@@ -2,6 +2,7 @@
 import { BreadCrumb, Button, Typography } from "@/components";
 import { EyeClosedIcon, EyeOpenIcon } from "@/icons";
 import clsx from "clsx";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function page() {
@@ -24,7 +25,8 @@ export default function page() {
             <input
               type="email"
               placeholder="your@mail.com"
-              className="w-96 border-2 border-gray px-5 py-2 font-josefin text-xl text-dark focus:outline-none"
+              required
+              className="w-96 border-2 border-gray px-5 py-3 font-josefin text-xl text-dark focus:outline-none lg:w-[460px]"
             />
           </div>
 
@@ -33,28 +35,29 @@ export default function page() {
               <Typography varient="body">Password</Typography>
             </label>
 
-            <div className="flex w-96 items-center border-2 border-gray">
+            <div className="flex w-96 items-center border-2 border-gray lg:w-[460px]">
               <input
-                type={isDisabled ? "password" : "text"}
-                className="w-full border-none px-5 py-2 font-josefin text-xl text-dark focus:outline-none"
+                type={isHidden ? "password" : "text"}
+                required
+                className="w-11/12 border-none px-5 py-3 font-josefin text-xl text-dark focus:outline-none"
               />
 
               <div
-                onClick={() => setIsDisabled(!isDisabled)}
+                onClick={() => setIsHidden(!isHidden)}
                 className={clsx("h-4 w-5", {
-                  "hidden opacity-0 ": !isDisabled,
-                })}
-              >
-                <EyeClosedIcon />
-              </div>
-
-              <div
-                onClick={() => setIsDisabled(!isDisabled)}
-                className={clsx("h-4 w-5", {
-                  "hidden opacity-0 ": isDisabled,
+                  "hidden opacity-0 ": !isHidden,
                 })}
               >
                 <EyeOpenIcon />
+              </div>
+
+              <div
+                onClick={() => setIsHidden(!isHidden)}
+                className={clsx("h-4 w-5", {
+                  "hidden opacity-0 ": isHidden,
+                })}
+              >
+                <EyeClosedIcon />
               </div>
             </div>
           </div>
@@ -69,13 +72,20 @@ export default function page() {
           </Typography>
         </div>
 
-        <div>
+        <div className="pt-10">
           <Typography varient="heading5" center>
             SIGN-IN TO YOUR ACCOUNT:
           </Typography>
-          <Typography varient="body1" color="sky" center className="underline">
-            Create new!
-          </Typography>
+          <Link href={"/signup"}>
+            <Typography
+              varient="body1"
+              color="sky"
+              center
+              className="underline"
+            >
+              Create new!
+            </Typography>
+          </Link>
         </div>
       </div>
     </>
