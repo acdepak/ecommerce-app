@@ -8,7 +8,7 @@ import { Typography } from "./Typography";
 export const SocialSection = () => {
   return (
     <div>
-      <Typography varient="social" center>
+      <Typography varient="social" center className="py-10 ">
         Follow us on Facebook @SlingsForBabies
       </Typography>
       <div className="grid grid-flow-row grid-cols-2 items-center justify-center overflow-clip md:grid-cols-4">
