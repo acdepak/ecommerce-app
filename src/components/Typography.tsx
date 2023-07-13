@@ -57,7 +57,7 @@ export const Typography: React.FunctionComponent<TypographyProps> = ({
         varient === "heading1",
       "text-2xl font-semibold lg:leading-10 lg:text-4xl":
         varient === "heading2",
-      "py-10 text-2xl lg:text-4xl": varient === "social",
+      "text-2xl lg:text-4xl": varient === "social",
       "text-lg font-normal lg:text-2xl lg:leading-10 ": varient === "heading3",
       "font-semibold lg:font-bold lg:leading-10 text-base lg:text-lg":
         varient === "heading4",
