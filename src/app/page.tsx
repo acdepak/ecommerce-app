@@ -255,7 +255,7 @@ const ProductSection = () => {
 const SocialSection = () => {
   return (
     <div>
-      <Typography varient="social" center>
+      <Typography varient="social" center className="py-10">
         Follow us on Facebook @SlingsForBabies
       </Typography>
       <div className="grid grid-flow-row grid-cols-2 items-center justify-center md:grid-cols-4">
@@ -325,7 +325,7 @@ const BlogSection = () => {
   return (
     <div className="px-5 pt-16 lg:px-48">
       <Typography varient="heading5" center className="py-10 leading-7">
-        Popular Articles in Our Parents magazine
+        POPULAR ARTICLES IN OUR PARENTS MAGAZINES
       </Typography>
 
       <div>
