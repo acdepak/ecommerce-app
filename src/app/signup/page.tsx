@@ -88,7 +88,7 @@ export default function page() {
           </div>
         </div>
 
-        <div className="flex flex-col items-start justify-center gap-8 bg-red/10">
+        <div className="flex flex-col items-start justify-center gap-8 px-2">
           <label className="flex items-center">
             <input type="checkbox" className="mr-4 h-5 w-6" />
             <Typography varient="body">
