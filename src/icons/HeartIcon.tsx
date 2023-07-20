@@ -1,10 +1,13 @@
 export const HeartIcon = () => {
   return (
     <svg viewBox="0 0 24 24">
+      {/* <rect width="24" height="24" fill="#0ff1f0" /> */}
       <path
         fill="#fff"
         d="M16.5 5c-1.54 0-3.04.99-3.56 2.36h-1.87C10.54 5.99 9.04 5 7.5 5C5.5 5 4 6.5 4 8.5c0 2.89 3.14 5.74 7.9 10.05l.1.1l.1-.1C16.86 14.24 20 11.39 20 8.5c0-2-1.5-3.5-3.5-3.5z"
-        opacity=".9"
+        opacity="1"
+        stroke="#fff"
+        strokeWidth="2"
       ></path>
       <path
         fill="currentColor"

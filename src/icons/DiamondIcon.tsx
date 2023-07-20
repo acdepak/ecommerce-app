@@ -4,16 +4,16 @@ export const DiamondIcon = () => {
       viewBox="0 0 512.00 512.00"
       fill="#ffffff"
       stroke="#ffffff"
-      stroke-width="0.00512"
+      strokeWidth="0.00512"
     >
-      <g id="SVGRepo_bgCarrier" stroke-width="0" />
+      <g id="SVGRepo_bgCarrier" strokeWidth="0" />
 
       <g
         id="SVGRepo_tracerCarrier"
-        stroke-linecap="round"
+        strokeLinecap="round"
         stroke-linejoin="round"
         stroke="#CCCCCC"
-        stroke-width="2.048"
+        strokeWidth="2.048"
       />
 
       <g id="SVGRepo_iconCarrier">
