@@ -14,10 +14,60 @@ import { ShareIcon } from "@/icons/ShareIcon";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
-import { createRef, useEffect, useState } from "react";
+import { SetStateAction, createRef, useState } from "react";
 import Slider from "react-slick";
 import { Button } from "./Button";
 import { Typography } from "./Typography";
+
+const Images = [
+  { id: 1, src: "/assets/images/giftImg1.png" },
+  { id: 2, src: "/assets/images/giftImg2.png" },
+  { id: 3, src: "/assets/images/giftImg3.png" },
+  { id: 4, src: "/assets/images/MysteryBox.png" },
+];
+
+const GiftOptions = [
+  {
+    id: 1,
+    title: "Bronze Box - value aprox. €85",
+    price: "85",
+    reference: "YREVTSLPRO61",
+    name: "Bronze",
+    icon: <BronzeStarIcon />,
+  },
+  {
+    id: 2,
+    title: "Silver Box - value aprox. €140",
+    price: "€140",
+    reference: "YREVTSLPRO62",
+    name: "Silver",
+    icon: <SilverStarIcon />,
+  },
+  {
+    id: 3,
+    title: "Gold Box - value aprox. €195",
+    price: "195",
+    reference: "YREVTSLPRO63",
+    name: "Gold",
+    icon: <GoldStarIcon />,
+  },
+  {
+    id: 4,
+    title: "Platinum Box - value aprox. €295",
+    price: "295",
+    reference: "YREVTSLPRO64",
+    name: "Platinum",
+    icon: <PlatinumIcon />,
+  },
+  {
+    id: 5,
+    title: "Diamond Box - value aprox. €350",
+    price: "350",
+    reference: "YREVTSLPRO65",
+    name: "Diamond",
+    icon: <DiamondIcon />,
+  },
+];
 
 export const ItemDisplaySection = ({
   path,
@@ -28,51 +78,6 @@ export const ItemDisplaySection = ({
   title: string;
   price: string;
 }) => {
-  const Images = [
-    { id: 1, src: "/assets/images/giftImg1.png" },
-    { id: 2, src: "/assets/images/giftImg2.png" },
-    { id: 3, src: "/assets/images/giftImg3.png" },
-    { id: 4, src: "/assets/images/MysteryBox.png" },
-  ];
-
-  const GiftOptions = [
-    {
-      id: 1,
-      title: "Bronze Box - value aprox. €85",
-      price: "85",
-      reference: "YREVTSLPRO61",
-      icon: <BronzeStarIcon />,
-    },
-    {
-      id: 2,
-      title: "Silver Box - value aprox. €140",
-      price: "€140",
-      reference: "YREVTSLPRO62",
-      icon: <SilverStarIcon />,
-    },
-    {
-      id: 3,
-      title: "Gold Box - value aprox. €195",
-      price: "195",
-      reference: "YREVTSLPRO63",
-      icon: <GoldStarIcon />,
-    },
-    {
-      id: 4,
-      title: "Platinum Box - value aprox. €295",
-      price: "295",
-      reference: "YREVTSLPRO64",
-      icon: <PlatinumIcon />,
-    },
-    {
-      id: 5,
-      title: "Diamond Box - value aprox. €350",
-      price: "350",
-      reference: "YREVTSLPRO65",
-      icon: <DiamondIcon />,
-    },
-  ];
-
   const TopSettingRef = createRef<Slider>();
 
   const TopSettings = {
@@ -90,33 +95,36 @@ export const ItemDisplaySection = ({
     infinite: true,
   };
 
-  const [option, setOption] = useState();
-  const [giftId, setGiftId] = useState<number>(1);
+  const [showOptions, setShowOptions] = useState(false);
+  const [selectedGift, setSelectedGift] = useState(
+    GiftOptions[GiftOptions.length - 1]
+  );
 
-  const [giftIcon, setGiftIcon] = useState(<DiamondIcon />);
-  const [isClick, setIsClick] = useState(false);
+  const showAllOptions = () => {
+    setShowOptions(!showOptions);
+  };
+
+  const hideOptions = () => {
+    setShowOptions(false);
+  };
+
+  const handleOptionSelect = (
+    option: SetStateAction<{
+      id: number;
+      title: string;
+      price: string;
+      reference: string;
+      name: string;
+      icon: JSX.Element;
+    }>
+  ) => {
+    setSelectedGift(option);
+    hideOptions();
+  };
 
   const [value, setValue] = useState<number>(1);
 
   const [like, setLike] = useState(false);
-
-  useEffect(() => {
-    // console.log(giftId);
-    setGiftId(giftId);
-  });
-
-  useEffect(() => {
-    if (giftId) {
-      const selectedGift = GiftOptions.find((gift) => gift.id === giftId);
-      // console.log(selectedGift?.title);
-      // setOption(selectedGift?.title);
-      // setGiftIcon(selectedGift?.icon);
-    }
-  }, [GiftOptions]);
-
-  const handleOption = () => {
-    setIsClick(false);
-  };
 
   return (
     <div>
@@ -231,14 +239,16 @@ export const ItemDisplaySection = ({
           {/* Option Box */}
           <div className="w-2/3 ">
             <div
-              onClick={() => setIsClick(!isClick)}
+              onClick={showAllOptions}
+              //  onClick={() => setIsClick(!isClick)}
               className="flex items-center justify-between gap-5 border-2 border-grayhard px-5 py-3"
             >
-              <div className=""></div>
+              <div />
+              {/* for alignment */}
 
               <div className="flex items-center gap-2">
-                <div className="h-10 w-10">{giftIcon}</div>
-                {option}
+                <div className="h-10 w-10">{selectedGift.icon}</div>
+                {selectedGift.title}
               </div>
 
               <div className="h-1 w-3">
@@ -246,14 +256,15 @@ export const ItemDisplaySection = ({
               </div>
             </div>
 
-            {isClick && (
+            {showOptions && (
+              // {isClick && (
               <div className="absolute z-10 flex w-1/4 justify-center  ">
                 <div className="flex flex-col items-start gap-2 ">
                   {GiftOptions?.map((option) => (
                     <div
                       key={option.id}
                       className="z-10 flex items-center gap-2 pl-5"
-                      onClick={() => setGiftId(option.id)}
+                      onClick={() => handleOptionSelect(option)}
                     >
                       <div className="h-10 w-10">{option.icon}</div>
                       {option.title}
@@ -316,18 +327,6 @@ export const ItemDisplaySection = ({
       <div>
         <div className="flex items-center justify-center gap-10 ">
           Description
-          <div
-            onClick={() => setLike(!like)}
-            className={clsx(
-              "h-96 w-96 rounded-full border-2 border-grayhard p-2 text-dark hover:cursor-pointer",
-              {
-                "border-red bg-red text-white": like,
-                "hover:bg-grayhard": !like,
-              }
-            )}
-          >
-            <HeartIcon />
-          </div>
         </div>
       </div>
     </div>

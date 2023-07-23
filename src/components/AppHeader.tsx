@@ -307,7 +307,10 @@ const Menu = () => {
       <Link href="#" className="font-mulish text-lg leading-7 hover:text-red">
         Sale
       </Link>
-      <Link href="#" className="font-mulish text-lg leading-7 hover:text-red">
+      <Link
+        href="/new"
+        className="font-mulish text-lg leading-7 hover:text-red"
+      >
         New
       </Link>
       <Link
