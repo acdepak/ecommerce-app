@@ -1,61 +1,19 @@
 export const DiamondIcon = () => {
   return (
-    <svg
-      viewBox="0 0 512.00 512.00"
-      fill="#ffffff"
-      stroke="#ffffff"
-      strokeWidth="0.00512"
-    >
-      <g id="SVGRepo_bgCarrier" strokeWidth="0" />
-
-      <g
-        id="SVGRepo_tracerCarrier"
-        strokeLinecap="round"
-        stroke-linejoin="round"
-        stroke="#CCCCCC"
-        strokeWidth="2.048"
+    <svg fill="#fff" stroke="#fff" viewBox="0 0 512 512">
+      <path fill="#84DBFF" d="M393.052 218.829H118.951l34.263-68.525H358.79z" />
+      <path fill="#31BAFD" d="M358.79 150.304H256.002v68.525h137.05z" />
+      <path fill="#B5F1F4" d="m118.951 218.829 137.051 171.313V218.829z" />
+      <path fill="#84DBFF" d="M256.002 218.829v171.312l137.05-171.312z" />
+      <path
+        fill="#31BAFD"
+        d="m188.514 218.829 67.488 171.313 67.487-171.313z"
       />
-
-      <g id="SVGRepo_iconCarrier">
-        <polygon
-          fill="#84DBFF"
-          points="393.052,218.829 118.951,218.829 153.214,150.304 358.79,150.304 "
-        />
-        <polygon
-          fill="#31BAFD"
-          points="358.79,150.304 256.002,150.304 256.002,218.829 393.052,218.829 "
-        />
-        <polygon
-          fill="#B5F1F4"
-          points="118.951,218.829 256.002,390.142 256.002,390.141 256.002,218.829 "
-        />
-        <polygon
-          fill="#84DBFF"
-          points="256.002,218.829 256.002,390.141 393.052,218.829 "
-        />
-        <polygon
-          fill="#31BAFD"
-          points="188.514,218.829 256.002,390.142 323.489,218.829 "
-        />
-        <polygon
-          fill="#2B9ED8"
-          points="256.002,218.829 256.002,390.141 323.489,218.829 "
-        />
-        <g>
-          <polygon
-            fill="#B5F1F4"
-            points="358.79,150.304 323.489,218.829 256.002,150.304 188.514,218.829 153.214,150.304 "
-          />
-          <path
-            fill="#B5F1F4"
-            d="M256.002,150.304L256.002,150.304L256.002,150.304z"
-          />
-        </g>
-        <polygon
-          fill="#84DBFF"
-          points="358.79,150.304 256.002,150.304 256.002,150.304 323.489,218.829 "
-        />
+      <path fill="#2B9ED8" d="M256.002 218.829v171.312l67.487-171.312z" />
+      <g fill="#B5F1F4">
+        <path d="m358.79 150.304-35.301 68.525-67.487-68.525-67.488 68.525-35.3-68.525zM256.002 150.304z" />
       </g>
+      <path fill="#84DBFF" d="M358.79 150.304H256.002l67.487 68.525z" />
     </svg>
   );
 };

@@ -14,7 +14,7 @@ import { ShareIcon } from "@/icons/ShareIcon";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
-import { createRef, useState } from "react";
+import { createRef, useEffect, useState } from "react";
 import Slider from "react-slick";
 import { Button } from "./Button";
 import { Typography } from "./Typography";
@@ -81,12 +81,20 @@ export const ItemDisplaySection = ({
   };
 
   const [option, setOption] = useState("Diamond Box - value aprox. €350");
-  const [icon, setIcon] = useState(<DiamondIcon />);
+  const [giftId, setGiftId] = useState<number>(1);
+  const [giftIcon, setGiftIcon] = useState(<DiamondIcon />);
   const [isClick, setIsClick] = useState(false);
 
   const [value, setValue] = useState<number>(1);
 
   const [like, setLike] = useState(false);
+
+  useEffect(() => {
+    console.log(giftId);
+    setGiftId(giftId);
+  });
+
+  useEffect(() => {});
 
   return (
     <div>
@@ -206,7 +214,7 @@ export const ItemDisplaySection = ({
               <div className=""></div>
 
               <div className="flex items-center gap-2">
-                <div className="h-10 w-10">{icon}</div>
+                <div className="h-10 w-10">{giftIcon}</div>
                 {option}
               </div>
 
@@ -218,11 +226,11 @@ export const ItemDisplaySection = ({
             {isClick && (
               <div className="absolute z-10 flex w-1/4 justify-center  ">
                 <div className="flex flex-col items-start gap-2 ">
-                  {GiftOptions?.map((option, id) => (
+                  {GiftOptions?.map((option) => (
                     <div
-                      key={id}
+                      key={option.id}
                       className="z-10 flex items-center gap-2 pl-5"
-                      onClick={() => setIcon(icon)}
+                      onClick={() => setGiftId(option.id)}
                     >
                       <div className="h-10 w-10">{option.icon}</div>
                       {option.title}

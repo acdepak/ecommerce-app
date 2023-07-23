@@ -1,71 +1,22 @@
 export const SilverStarIcon = () => {
   return (
     <svg viewBox="0 0 1000 1000">
-      <g transform="matrix(3.8237 0 0 3.8237 499.6666 500.3236)" id="420614">
-        {/* Top Right - Dark */}
-        <g transform="matrix(1 0 0 1 17.0415 -62.923)" id="Objects">
-          <polygon
-            fill="#8c8c8c"
-            points="17.042,28.8385 -17.042,-63.2715 -17.042,63.2715 "
-          />
-        </g>
-
-        {/* top Left - Light*/}
-        <g transform="matrix(1 0 0 1 -17.042 -62.923)" id="Objects">
-          <polygon
-            fill="#dadada"
-            points="17.0415,-63.2715 -17.0415,28.8385 17.0415,63.2715 "
-          />
-        </g>
-
-        {/* Left-top - Dark*/}
-        <g transform="matrix(1 0 0 1 -63.0975 -16.868)" id="Objects">
-          <polygon
-            fill="#8c8c8c"
-            points="29.014,-17.2165 -63.097,16.8675 63.097,17.2165 "
-          />
-        </g>
-
-        {/* Left-bottom - Light */}
-        <g transform="matrix(1 0 0 1 -63.0975 17.0415)" id="Objects">
-          <polygon
-            fill="#dadada"
-            points="-63.097,-17.042 29.014,17.042 63.097,-16.693 "
-          />
-        </g>
-
-        {/* Right-top - Light */}
-        <g transform="matrix(1 0 0 1 63.097 -16.868)" id="Objects">
-          <polygon
-            fill="#dadada"
-            points="63.0975,16.8675 -29.0135,-17.2165 -63.0975,17.2165 "
-          />
-        </g>
-
-        {/* Right-Bottom - Dark */}
-        <g transform="matrix(1 0 0 1 63.097 17.0415)" id="Objects">
-          <polygon
-            fill="#8c8c8c"
-            points="-63.0975,-16.693 -29.0135,17.042 63.0975,-17.042 "
-          />
-        </g>
-
-        {/* Bottom right - Light */}
-        <g transform="matrix(1 0 0 1 17.0415 63.2715)" id="Objects">
-          <polygon
-            fill="#dadada"
-            points="-17.042,62.923 17.042,-29.188 -17.042,-62.923 "
-          />
-        </g>
-
-        {/* Bottom left - Dark */}
-        <g transform="matrix(1 0 0 1 -17.042 63.2715)" id="Objects">
-          <polygon
-            fill="#8c8c8c"
-            points="-17.0415,-29.188 17.0415,62.923 17.0415,-62.923 "
-          />
-        </g>
-      </g>
+      <path fill="#8c8c8c" d="M629.992 369.997 499.665 17.796v483.862z" />
+      <path fill="#dadada" d="m499.667 17.796-130.324 352.2 130.324 131.662z" />
+      <path fill="#8c8c8c" d="M369.342 369.997 17.137 500.324l482.528 1.334z" />
+      <path
+        fill="#dadada"
+        d="m17.137 500.322 352.205 130.327 130.323-128.993zM982.198 500.324 629.994 369.997 499.667 501.658z"
+      />
+      <path
+        fill="#8c8c8c"
+        d="M499.667 501.656 629.994 630.65l352.204-130.327z"
+      />
+      <path
+        fill="#dadada"
+        d="m499.665 982.854 130.327-352.205-130.327-128.993z"
+      />
+      <path fill="#8c8c8c" d="m369.343 630.649 130.324 352.205V501.656z" />
     </svg>
   );
 };

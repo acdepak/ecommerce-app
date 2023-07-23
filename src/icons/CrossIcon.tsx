@@ -1,8 +1,7 @@
 export const CrossIcon = () => {
   return (
-    <svg viewBox="0 0 12 12" fill="none">
-      <path d="M1 11.0502L11 1.0502" stroke="currentColor" />
-      <path d="M1 1L11 11" stroke="currentColor" />
+    <svg fill="none" viewBox="0 0 12 12">
+      <path stroke="currentColor" d="m1 11.05 10-10M1 1l10 10" />
     </svg>
   );
 };
