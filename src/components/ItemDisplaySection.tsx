@@ -39,26 +39,36 @@ export const ItemDisplaySection = ({
     {
       id: 1,
       title: "Bronze Box - value aprox. €85",
+      price: "85",
+      reference: "YREVTSLPRO61",
       icon: <BronzeStarIcon />,
     },
     {
       id: 2,
       title: "Silver Box - value aprox. €140",
+      price: "€140",
+      reference: "YREVTSLPRO62",
       icon: <SilverStarIcon />,
     },
     {
       id: 3,
       title: "Gold Box - value aprox. €195",
+      price: "195",
+      reference: "YREVTSLPRO63",
       icon: <GoldStarIcon />,
     },
     {
       id: 4,
       title: "Platinum Box - value aprox. €295",
+      price: "295",
+      reference: "YREVTSLPRO64",
       icon: <PlatinumIcon />,
     },
     {
       id: 5,
       title: "Diamond Box - value aprox. €350",
+      price: "350",
+      reference: "YREVTSLPRO65",
       icon: <DiamondIcon />,
     },
   ];
@@ -80,8 +90,9 @@ export const ItemDisplaySection = ({
     infinite: true,
   };
 
-  const [option, setOption] = useState("Diamond Box - value aprox. €350");
+  const [option, setOption] = useState();
   const [giftId, setGiftId] = useState<number>(1);
+
   const [giftIcon, setGiftIcon] = useState(<DiamondIcon />);
   const [isClick, setIsClick] = useState(false);
 
@@ -90,15 +101,27 @@ export const ItemDisplaySection = ({
   const [like, setLike] = useState(false);
 
   useEffect(() => {
-    console.log(giftId);
+    // console.log(giftId);
     setGiftId(giftId);
   });
 
-  useEffect(() => {});
+  useEffect(() => {
+    if (giftId) {
+      const selectedGift = GiftOptions.find((gift) => gift.id === giftId);
+      // console.log(selectedGift?.title);
+      // setOption(selectedGift?.title);
+      // setGiftIcon(selectedGift?.icon);
+    }
+  }, [GiftOptions]);
+
+  const handleOption = () => {
+    setIsClick(false);
+  };
 
   return (
     <div>
       <div className="flex items-center justify-center gap-10 bg-gray py-20">
+        {/* Image */}
         <div className="mystery flex w-2/5 gap-5 ">
           {/* <Slider ref={TopSettingRef} {...TopSettings}> */}
           {/* {Images?.map((image, id) => ( */}
