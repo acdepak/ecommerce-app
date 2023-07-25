@@ -1,7 +1,7 @@
 export const SilverStarIcon = () => {
   return (
     <svg viewBox="0 0 1000 1000">
-      <path fill="#8c8c8c" d="M629.992 369.997 499.665 17.796v483.862z" />
+      {/* <path fill="#8c8c8c" d="M629.992 369.997 499.665 17.796v483.862z" />
       <path fill="#dadada" d="m499.667 17.796-130.324 352.2 130.324 131.662z" />
       <path fill="#8c8c8c" d="M369.342 369.997 17.137 500.324l482.528 1.334z" />
       <path
@@ -16,7 +16,15 @@ export const SilverStarIcon = () => {
         fill="#dadada"
         d="m499.665 982.854 130.327-352.205-130.327-128.993z"
       />
-      <path fill="#8c8c8c" d="m369.343 630.649 130.324 352.205V501.656z" />
+      <path fill="#8c8c8c" d="m369.343 630.649 130.324 352.205V501.656z" /> */}
+      <path fill="#dadada" d="m 624 419 L 518.4 137.6 L 520 522.4 z " />
+      <path fill="#8c8c8c" d="M 518.4 137.6 L 415.2 416 L 520 522.4 z " />
+      <path fill="#dadada" d="M 415.2 416 L 133.6 520 L 520 522.4 z " />
+      <path fill="#8c8c8c" d="M 133.6 520 L 415.2 624.8 L 520 522.4 z " />
+      <path fill="#8c8c8c" d="M 905.759 520.2592 L 624 419 L 520 522.4 z " />
+      <path fill="#dadada" d="M 624 624.8 L 520 522.4 L 905.759 520.2592 z " />
+      <path fill="#8c8c8c" d="M 520 906.4 L 624 624.8 L 520 522.4 z " />
+      <path fill="#dadada" d="M 415.2 624.8 L 520 906.4 V 522.4 z" />
     </svg>
   );
 };
