@@ -57,8 +57,11 @@ const DefaultGift: React.FC<{ item: GiftOption; onClick: () => void }> = ({
   item,
   onClick,
 }) => (
-  <div className="default-gift" onClick={onClick}>
-    {item.icon}
+  <div
+    className="flex w-fit items-center justify-center gap-2 border border-grayhard px-10"
+    onClick={onClick}
+  >
+    <div className="h-10 w-10">{item.icon}</div>
     <span>{item.title}</span>
   </div>
 );
@@ -67,17 +70,19 @@ const OptionsBox: React.FC<{
   options: GiftOption[];
   onOptionSelect: (option: GiftOption) => void;
 }> = ({ options, onOptionSelect }) => (
-  <div className="options-box">
-    {options.map((option) => (
-      <div
-        key={option.id}
-        className="option"
-        onClick={() => onOptionSelect(option)}
-      >
-        {option.icon}
-        <span>{option.title}</span>
-      </div>
-    ))}
+  <div className="flex justify-center">
+    <div className="flex flex-col items-start gap-2">
+      {options.map((option) => (
+        <div
+          key={option.id}
+          className="flex items-center gap-2"
+          onClick={() => onOptionSelect(option)}
+        >
+          <div className="h-10 w-10">{option.icon}</div>
+          <span>{option.title}</span>
+        </div>
+      ))}
+    </div>
   </div>
 );
 
@@ -88,7 +93,7 @@ export default function page() {
   );
 
   const showAllOptions = () => {
-    setShowOptions(true);
+    setShowOptions(!showOptions);
   };
 
   const hideOptions = () => {
@@ -101,7 +106,7 @@ export default function page() {
   };
 
   return (
-    <div className="app">
+    <div className="flex flex-col items-center py-10">
       <div className="default-items">
         <DefaultGift item={selectedGift} onClick={showAllOptions} />
       </div>
