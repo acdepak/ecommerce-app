@@ -18,11 +18,8 @@ import { ProductsSection } from "@/components/ProductsSection";
 export default function page() {
   return (
     <div>
-      <ItemDisplaySection
-        path="Home / Mystery Box"
-        title="SFB Mystery box - diamond"
-        price="300"
-      />
+      <ItemDisplaySection />
+
       <FeaturedSection />
       <ProductsSection>YOU MIGHT ALSO BE INTERESTED IN</ProductsSection>
       <SocialSection />
