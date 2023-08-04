@@ -20,6 +20,7 @@ import Link from "next/link";
 import { SetStateAction, createRef, useState } from "react";
 import Slider from "react-slick";
 import { Button } from "./Button";
+import { InputIncreaseDecrease } from "./InputIncreaseDecrease";
 import { Typography } from "./Typography";
 
 interface GiftOptions {
@@ -49,8 +50,8 @@ const GiftOptions: GiftOptions[] = [
     title: "Silver Box - value aprox. €140",
     price: 140,
     reference: "YREVTSLPRO62",
-    stock: 10,
-    like: true,
+    stock: 5,
+    like: false,
     name: "Silver",
     icon: <SilverStarIcon />,
   },
@@ -59,8 +60,8 @@ const GiftOptions: GiftOptions[] = [
     title: "Gold Box - value aprox. €195",
     price: 195,
     reference: "YREVTSLPRO63",
-    stock: 10,
-    like: true,
+    stock: 2,
+    like: false,
     name: "Gold",
     icon: <GoldStarIcon />,
   },
@@ -69,7 +70,7 @@ const GiftOptions: GiftOptions[] = [
     title: "Platinum Box - value aprox. €295",
     price: 295,
     reference: "YREVTSLPRO64",
-    stock: 10,
+    stock: 7,
     like: true,
     name: "Platinum",
     icon: <PlatinumIcon />,
@@ -79,7 +80,7 @@ const GiftOptions: GiftOptions[] = [
     title: "Diamond Box - value aprox. €350",
     price: 350,
     reference: "YREVTSLPRO65",
-    stock: 10,
+    stock: 9,
     like: true,
     name: "Diamond",
     icon: <DiamondIcon />,
@@ -91,6 +92,8 @@ export const ItemDisplaySection = () => {
   const [selectedGift, setSelectedGift] = useState(
     GiftOptions[GiftOptions.length - 1]
   );
+
+  console.log(selectedGift.stock);
 
   const showAllOptions = () => {
     setShowOptions(!showOptions);
@@ -115,8 +118,6 @@ export const ItemDisplaySection = () => {
     setSelectedGift(option);
     hideOptions();
   };
-
-  const [value, setValue] = useState<number>(1);
 
   const [like, setLike] = useState(false);
 
@@ -236,29 +237,16 @@ export const ItemDisplaySection = () => {
           </div>
 
           <div className="flex items-center gap-5 ">
-            {/* increase decrease */}
-            <div className="flex w-fit items-center border border-grayhard bg-white py-2">
-              <div
-                className="pl-4 text-4xl text-grayhard hover:cursor-pointer"
-                onClick={() => value > 1 && setValue(value - 1)}
-              >
-                -
-              </div>
-              <p className="w-14 text-center text-lg">{value}</p>
-              <div
-                className="pr-4 text-4xl text-grayhard hover:cursor-pointer"
-                onClick={() => setValue(value + 1)}
-              >
-                +
-              </div>
-            </div>
+            <InputIncreaseDecrease stock={selectedGift.stock} />
 
             {/* Button */}
             <Link href={selectedGift.stock < 1 ? "/notify" : "/addtocart"}>
               <Button varient="product">
-                {selectedGift.stock < 1
-                  ? "NOTIFY WHEN AVAILABLE"
-                  : "ADD TO CART"}
+                {selectedGift.stock < 1 ? (
+                  <p>NOTIFY WHEN AVAILABLE</p>
+                ) : (
+                  <p className="px-14">ADD TO CART</p>
+                )}
               </Button>
             </Link>
 
@@ -286,7 +274,7 @@ export const ItemDisplaySection = () => {
         </div>
       </div>
 
-      <DescriptionSection options={GiftOptions} onClick={handleOptionSelect} />
+      <DescriptionSection options={GiftOptions} />
     </div>
   );
 };
@@ -294,10 +282,10 @@ export const ItemDisplaySection = () => {
 const ImageSection = () => {
   const baseUrl = "/assets/gift";
   const Images = [
+    { id: 4, link: "/assets/images/MysteryBox.png", alt: "MysteryBox" },
     { id: 1, link: "/assets/images/giftImg1.png", alt: "Img1" },
     { id: 2, link: "/assets/images/giftImg2.png", alt: "Img2" },
     { id: 3, link: "/assets/images/giftImg3.png", alt: "Img3" },
-    { id: 4, link: "/assets/images/MysteryBox.png", alt: "MysteryBox" },
   ];
 
   const TopSettingRef = createRef<Slider>();
@@ -305,7 +293,11 @@ const ImageSection = () => {
   const TopSettings = {
     customPaging: function (i: number) {
       return (
-        <div className="">
+        <div
+          className={clsx({
+            hidden: i === 3,
+          })}
+        >
           <Image
             src={`${baseUrl}/giftImg${i + 1}.png`}
             alt="Hello"
@@ -322,9 +314,8 @@ const ImageSection = () => {
     slidesToScroll: 1,
     slidesToShow: 1,
     autoplay: false,
-    autoplaySpeed: 4000,
     fade: true,
-    speed: 1000,
+    speed: 500,
     lazyLoading: true,
     infinite: true,
     arrows: false,
@@ -338,7 +329,7 @@ const ImageSection = () => {
   };
 
   return (
-    <div className="mystery flex items-center justify-center gap-5">
+    <div className="mystery flex w-2/5 items-center gap-5 ">
       <div
         className="h-7 w-7 text-dark hover:cursor-pointer hover:text-red lg:h-10 lg:w-10"
         onClick={previousImg}
@@ -346,21 +337,23 @@ const ImageSection = () => {
         <CheveronLeftIcon />
       </div>
 
-      <div className="relative h-[790px] w-[526px] bg-amber-400">
-        <Slider ref={TopSettingRef} {...TopSettings}>
-          {Images?.map(({ id, link, alt }) => (
-            <div key={id} className="relative h-[790px] w-[526px]">
-              <Image
-                src={link}
-                alt={alt}
-                fill
-                sizes="(max-width: 768px) 100vw)"
-                className="object-cover"
-                quality={100}
-              />
-            </div>
-          ))}
-        </Slider>
+      <div className="flex w-[650px] justify-end">
+        <div className="relative h-[790px] w-[526px] ">
+          <Slider ref={TopSettingRef} {...TopSettings}>
+            {Images?.map(({ id, link, alt }) => (
+              <div key={id} className="relative h-[790px] w-[526px]">
+                <Image
+                  src={link}
+                  alt={alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw)"
+                  className="object-cover"
+                  quality={100}
+                />
+              </div>
+            ))}
+          </Slider>
+        </div>
       </div>
 
       <div
@@ -375,8 +368,7 @@ const ImageSection = () => {
 
 const DescriptionSection: React.FC<{
   options: GiftOptions[];
-  onClick: (option: GiftOptions) => void;
-}> = ({ options, onClick }) => {
+}> = ({ options }) => {
   return (
     <div className="flex flex-col items-center justify-center gap-5 py-10">
       <div className="flex flex-col gap-5">
@@ -414,11 +406,7 @@ const DescriptionSection: React.FC<{
 
         <div className="flex flex-col items-start gap-2 ">
           {options?.map((option) => (
-            <div
-              key={option.id}
-              className="z-10 flex items-center gap-2 "
-              onClick={() => onClick(option)}
-            >
+            <div key={option.id} className="z-10 flex items-center gap-2 ">
               <div className="h-10 w-10">{option.icon}</div>
               {option.title}
             </div>
