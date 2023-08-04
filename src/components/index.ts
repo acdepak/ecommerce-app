@@ -3,6 +3,7 @@ export * from "./AppHeader";
 export * from "./BreadCrumb";
 export * from "./Button";
 export * from "./FeaturedSection";
+export * from "./InputIncreaseDecrease";
 export * from "./ItemDisplaySection";
 export * from "./ProductsSection";
 export * from "./ShopAllProd";
