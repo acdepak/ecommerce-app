@@ -29,3 +29,16 @@
   height: 1.5rem;
   width: 1.5rem;
 }
+
+.mystery .slick-dots li {
+  opacity: 0.7;
+  margin-bottom: 0.5rem;
+  height: 5rem;
+  width: 5rem;
+}
+
+.mystery .slick-dots .slick-active {
+  opacity: 1;
+  height: 5rem;
+  width: 5rem;
+}
