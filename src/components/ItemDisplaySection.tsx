@@ -89,15 +89,10 @@ const GiftOptions: GiftOptions[] = [
 
 export const ItemDisplaySection = () => {
   const [showOptions, setShowOptions] = useState(false);
+
   const [selectedGift, setSelectedGift] = useState(
     GiftOptions[GiftOptions.length - 1]
   );
-
-  console.log(selectedGift.stock);
-
-  const showAllOptions = () => {
-    setShowOptions(!showOptions);
-  };
 
   const hideOptions = () => {
     setShowOptions(false);
@@ -123,10 +118,10 @@ export const ItemDisplaySection = () => {
 
   return (
     <div>
-      <div className="flex items-center justify-center gap-10 bg-gray py-20">
+      <div className="flex items-center justify-center gap-5 bg-gray px-5 py-20 lg:gap-10">
         <ImageSection />
 
-        <div className="flex w-2/5 flex-col gap-5 ">
+        <div className="flex w-1/2 flex-col gap-5 lg:w-2/5">
           <div>
             <Typography varient="body1" color="grayhard">
               Home / Mystery Box
@@ -188,23 +183,18 @@ export const ItemDisplaySection = () => {
             </Typography>
           </div>
 
-          {/* Link */}
-          <Link href="/gift" className="flex items-center gap-3">
-            <div className="h-6 w-7">
-              <ShareIcon />
-            </div>
-            <Typography varient="body1" color="sky" className="underline">
-              Send Link to a Friend
-            </Typography>
-          </Link>
+          {/* Link to Friend */}
+          <div className="hidden lg:block">
+            <LinktoFriend />
+          </div>
 
           {/* Option Box */}
-          <div className="w-2/3 ">
+          <div className="bg-white lg:w-2/3">
             <div
-              onClick={showAllOptions}
+              onClick={() => setShowOptions(!showOptions)}
               className="flex items-center justify-between gap-5 border-2 border-grayhard px-5 py-3"
             >
-              <div />
+              <div className="hidden lg:block" />
               {/* for alignment */}
 
               <div className="flex items-center gap-2">
@@ -218,7 +208,7 @@ export const ItemDisplaySection = () => {
             </div>
 
             {showOptions && (
-              <div className="absolute z-10 flex w-1/4 justify-center  ">
+              <div className="absolute z-10 flex justify-center lg:w-1/4  ">
                 <div className="flex flex-col items-start gap-2 ">
                   {GiftOptions?.map((option) => (
                     <div
@@ -230,17 +220,20 @@ export const ItemDisplaySection = () => {
                       {option.title}
                     </div>
                   ))}
-                  <div className="absolute top-0 h-full w-3/4 bg-gray/90 " />
+                  <div className="absolute top-0 h-full w-full bg-gray/90 lg:w-3/4 " />
                 </div>
               </div>
             )}
           </div>
 
-          <div className="flex items-center gap-5 ">
+          <div className="flex flex-wrap items-center justify-evenly gap-5 lg:flex-row ">
             <InputIncreaseDecrease stock={selectedGift.stock} />
 
             {/* Button */}
-            <Link href={selectedGift.stock < 1 ? "/notify" : "/addtocart"}>
+            <Link
+              href={selectedGift.stock < 1 ? "/notify" : "/addtocart"}
+              className="order-last lg:order-none"
+            >
               <Button varient="product">
                 {selectedGift.stock < 1 ? (
                   <p>NOTIFY WHEN AVAILABLE</p>
@@ -294,7 +287,7 @@ const ImageSection = () => {
     customPaging: function (i: number) {
       return (
         <div
-          className={clsx({
+          className={clsx("hidden lg:block", {
             hidden: i === 3,
           })}
         >
@@ -329,19 +322,22 @@ const ImageSection = () => {
   };
 
   return (
-    <div className="mystery flex w-2/5 items-center gap-5 ">
+    <div className="mystery flex w-1/2 items-center gap-5 lg:w-2/5 ">
       <div
-        className="h-7 w-7 text-dark hover:cursor-pointer hover:text-red lg:h-10 lg:w-10"
+        className="hidden h-7 w-7 text-dark hover:cursor-pointer hover:text-red lg:block lg:h-10 lg:w-10"
         onClick={previousImg}
       >
         <CheveronLeftIcon />
       </div>
 
-      <div className="flex w-[650px] justify-end">
-        <div className="relative h-[790px] w-[526px] ">
+      <div className="flex justify-end lg:w-[650px]">
+        <div className="relative h-[532px] w-[355px] lg:h-[790px] lg:w-[526px] ">
           <Slider ref={TopSettingRef} {...TopSettings}>
             {Images?.map(({ id, link, alt }) => (
-              <div key={id} className="relative h-[790px] w-[526px]">
+              <div
+                key={id}
+                className="relative h-[532px] w-[355px] lg:h-[790px] lg:w-[526px]"
+              >
                 <Image
                   src={link}
                   alt={alt}
@@ -357,7 +353,7 @@ const ImageSection = () => {
       </div>
 
       <div
-        className="h-7 w-7 text-dark hover:cursor-pointer hover:text-red lg:h-10 lg:w-10"
+        className="hidden h-7 w-7 text-dark hover:cursor-pointer hover:text-red lg:block lg:h-10 lg:w-10"
         onClick={nextImg}
       >
         <CheveronRightIcon />
@@ -366,57 +362,90 @@ const ImageSection = () => {
   );
 };
 
+const LinktoFriend = () => {
+  return (
+    <Link href="/gift" className="flex items-center gap-3">
+      <div className="hidden h-6 w-7 lg:block">
+        <ShareIcon />
+      </div>
+      <Typography varient="body1" color="sky" className="underline">
+        Send Link to a Friend
+      </Typography>
+    </Link>
+  );
+};
+
 const DescriptionSection: React.FC<{
   options: GiftOptions[];
 }> = ({ options }) => {
+  const [selectedTab, setSelectedTab] = useState("Features");
   return (
     <div className="flex flex-col items-center justify-center gap-5 py-10">
       <div className="flex flex-col gap-5">
         <div className="flex flex-col items-start gap-5 ">
-          <Typography
-            varient="heading4"
-            color="sky"
-            className="underline underline-offset-8"
-          >
-            Description
-          </Typography>
+          <div className="flex gap-5">
+            <Typography
+              varient="heading4"
+              className={clsx("text-grayhard hover:cursor-pointer", {
+                "text-sky underline underline-offset-8":
+                  selectedTab == "Features",
+              })}
+              onClick={() => setSelectedTab("Features")}
+            >
+              Features
+            </Typography>
+
+            <Typography
+              varient="heading4"
+              className={clsx("text-grayhard hover:cursor-pointer", {
+                "text-sky underline underline-offset-8":
+                  selectedTab == "Description",
+              })}
+              onClick={() => setSelectedTab("Description")}
+            >
+              Description
+            </Typography>
+          </div>
 
           <Typography varient="heading3"> More about product</Typography>
         </div>
 
-        <Typography varient="body">
-          Thank you for being interested in our Mystery Box!
-          <br /> Are you up for a surprise or maybe a challenge?
-        </Typography>
+        <div className="flex flex-col gap-5">
+          <Typography varient="body">
+            Thank you for being interested in our Mystery Box!
+            <br /> Are you up for a surprise or maybe a challenge?
+          </Typography>
 
-        <Typography varient="body" className="max-w-4xl">
-          Our Mystery Boxes are for everyone, available in 5 different sizes. Do
-          you have a hard time choosing a wrap or color or are you a thrill
-          seeker who loves surprises? We are going to do best wee can to make
-          the nicest and most beautiful Mystery Box ever, fitted for you. Order
-          the Mystery Box you like, receive a e-mail with a form. By filling out
-          this form, we get to know you more and hear your preferences. With
-          this information, we hope to surprise you with a box that will
-          dfinitely be a match for you.
-        </Typography>
+          <Typography varient="body" className="max-w-4xl">
+            Our Mystery Boxes are for everyone, available in 5 different sizes.
+            Do you have a hard time choosing a wrap or color or are you a thrill
+            seeker who loves surprises? We are going to do best wee can to make
+            the nicest and most beautiful Mystery Box ever, fitted for you.
+            Order the Mystery Box you like, receive a e-mail with a form. By
+            filling out this form, we get to know you more and hear your
+            preferences. With this information, we hope to surprise you with a
+            box that will dfinitely be a match for you.
+          </Typography>
 
-        <Typography varient="body" className="max-w-4xl">
-          With the Mystery Box more valur than what you have paid is guranteed!
-        </Typography>
+          <Typography varient="body" className="max-w-4xl">
+            With the Mystery Box more valur than what you have paid is
+            guranteed!
+          </Typography>
 
-        <div className="flex flex-col items-start gap-2 ">
-          {options?.map((option) => (
-            <div key={option.id} className="z-10 flex items-center gap-2 ">
-              <div className="h-10 w-10">{option.icon}</div>
-              {option.title}
-            </div>
-          ))}
+          <div className="flex flex-col items-start gap-2 ">
+            {options?.map((option) => (
+              <div key={option.id} className="z-10 flex items-center gap-2 ">
+                <div className="h-10 w-10">{option.icon}</div>
+                {option.title}
+              </div>
+            ))}
+          </div>
+
+          <Typography varient="body" className="max-w-4xl">
+            Returning is possible, at your own costs. This has to be the whole
+            box, not parts of it.
+          </Typography>
         </div>
-
-        <Typography varient="body" className="max-w-4xl">
-          Returning is possible, at your own costs. This has to be the whole
-          box, not parts of it.
-        </Typography>
       </div>
     </div>
   );
