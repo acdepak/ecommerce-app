@@ -36,7 +36,7 @@ interface TypographyProps extends React.HTMLAttributes<HTMLAnchorElement> {
     | "darkblue"
     | "cream";
   center?: boolean;
-  width?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
+  width?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "4xl";
 }
 
 export const Typography: React.FunctionComponent<TypographyProps> = ({
@@ -73,6 +73,7 @@ export const Typography: React.FunctionComponent<TypographyProps> = ({
       "font-mulish":
         varient === "body1" || varient === "body" || varient === "social",
       "text-center": center,
+      "max-w-4xl": width === "4xl",
       "max-w-2xl": width === "2xl",
       "max-w-xl": width === "xl",
       "max-w-lg": width === "lg",
