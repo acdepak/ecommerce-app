@@ -60,7 +60,7 @@ const GiftOptions: GiftOptions[] = [
     title: "Gold Box - value aprox. €195",
     price: 195,
     reference: "YREVTSLPRO63",
-    stock: 2,
+    stock: 0,
     like: false,
     name: "Gold",
     icon: <GoldStarIcon />,
@@ -118,10 +118,10 @@ export const ItemDisplaySection = () => {
 
   return (
     <div>
-      <div className="flex items-center justify-center gap-5 bg-gray px-5 py-20 lg:gap-10">
+      <div className="flex flex-col items-center justify-center gap-5 bg-gray px-5 py-20 md:flex-row lg:gap-10">
         <ImageSection />
 
-        <div className="flex w-1/2 flex-col gap-5 lg:w-2/5">
+        <div className="flex flex-col gap-5 md:w-1/2 lg:w-2/5">
           <div>
             <Typography varient="body1" color="grayhard">
               Home / Mystery Box
@@ -184,7 +184,7 @@ export const ItemDisplaySection = () => {
           </div>
 
           {/* Link to Friend */}
-          <div className="hidden lg:block">
+          <div>
             <LinktoFriend />
           </div>
 
@@ -226,8 +226,11 @@ export const ItemDisplaySection = () => {
             )}
           </div>
 
-          <div className="flex flex-wrap items-center justify-evenly gap-5 lg:flex-row ">
-            <InputIncreaseDecrease stock={selectedGift.stock} />
+          <div className="flex flex-wrap items-center justify-evenly gap-5 lg:flex-row lg:justify-start ">
+            <InputIncreaseDecrease
+              stock={selectedGift.stock}
+              name={selectedGift.name}
+            />
 
             {/* Button */}
             <Link
@@ -238,7 +241,7 @@ export const ItemDisplaySection = () => {
                 {selectedGift.stock < 1 ? (
                   <p>NOTIFY WHEN AVAILABLE</p>
                 ) : (
-                  <p className="px-14">ADD TO CART</p>
+                  <p className="px-12">ADD TO CART</p>
                 )}
               </Button>
             </Link>
@@ -287,7 +290,7 @@ const ImageSection = () => {
     customPaging: function (i: number) {
       return (
         <div
-          className={clsx("hidden lg:block", {
+          className={clsx("invisible lg:visible", {
             hidden: i === 3,
           })}
         >
@@ -303,7 +306,7 @@ const ImageSection = () => {
       );
     },
     dots: true,
-    dotsClass: "slick-dots !flex flex-col right-28 top-5 h-fit ",
+    dotsClass: "slick-dots !flex flex-col right-24 top-5 h-fit ",
     slidesToScroll: 1,
     slidesToShow: 1,
     autoplay: false,
@@ -322,15 +325,15 @@ const ImageSection = () => {
   };
 
   return (
-    <div className="mystery flex w-1/2 items-center gap-5 lg:w-2/5 ">
+    <div className="mystery relative flex items-center justify-center gap-5 md:w-1/2 lg:w-2/5">
       <div
-        className="hidden h-7 w-7 text-dark hover:cursor-pointer hover:text-red lg:block lg:h-10 lg:w-10"
+        className="absolute left-0 z-10 h-7 w-7 rounded-full bg-white text-dark hover:cursor-pointer hover:text-red lg:h-10 lg:w-10 "
         onClick={previousImg}
       >
         <CheveronLeftIcon />
       </div>
 
-      <div className="flex justify-end lg:w-[650px]">
+      <div className="flex w-[355px] justify-end lg:w-[630px]">
         <div className="relative h-[532px] w-[355px] lg:h-[790px] lg:w-[526px] ">
           <Slider ref={TopSettingRef} {...TopSettings}>
             {Images?.map(({ id, link, alt }) => (
@@ -353,7 +356,7 @@ const ImageSection = () => {
       </div>
 
       <div
-        className="hidden h-7 w-7 text-dark hover:cursor-pointer hover:text-red lg:block lg:h-10 lg:w-10"
+        className="absolute right-0 h-7 w-7 rounded-full bg-white text-dark hover:cursor-pointer hover:text-red lg:block lg:h-10 lg:w-10 "
         onClick={nextImg}
       >
         <CheveronRightIcon />
@@ -365,7 +368,7 @@ const ImageSection = () => {
 const LinktoFriend = () => {
   return (
     <Link href="/gift" className="flex items-center gap-3">
-      <div className="hidden h-6 w-7 lg:block">
+      <div className="h-6 w-7">
         <ShareIcon />
       </div>
       <Typography varient="body1" color="sky" className="underline">
@@ -380,7 +383,7 @@ const DescriptionSection: React.FC<{
 }> = ({ options }) => {
   const [selectedTab, setSelectedTab] = useState("Features");
   return (
-    <div className="flex flex-col items-center justify-center gap-5 py-10">
+    <div className="flex flex-col items-center justify-center gap-5 px-10 py-10">
       <div className="flex flex-col gap-5">
         <div className="flex flex-col items-start gap-5 ">
           <div className="flex gap-5">
@@ -410,7 +413,11 @@ const DescriptionSection: React.FC<{
           <Typography varient="heading3"> More about product</Typography>
         </div>
 
-        <div className="flex flex-col gap-5">
+        <div
+          className={clsx("flex flex-col gap-5", {
+            hidden: selectedTab !== "Description",
+          })}
+        >
           <Typography varient="body">
             Thank you for being interested in our Mystery Box!
             <br /> Are you up for a surprise or maybe a challenge?
@@ -427,7 +434,7 @@ const DescriptionSection: React.FC<{
             box that will dfinitely be a match for you.
           </Typography>
 
-          <Typography varient="body" className="max-w-4xl">
+          <Typography varient="body" width="4xl">
             With the Mystery Box more valur than what you have paid is
             guranteed!
           </Typography>
@@ -441,9 +448,51 @@ const DescriptionSection: React.FC<{
             ))}
           </div>
 
-          <Typography varient="body" className="max-w-4xl">
+          <Typography varient="body" width="4xl">
             Returning is possible, at your own costs. This has to be the whole
             box, not parts of it.
+          </Typography>
+        </div>
+
+        <div
+          className={clsx("flex flex-col gap-5", {
+            hidden: selectedTab !== "Features",
+          })}
+        >
+          <Typography varient="body" width="4xl">
+            Follow these steps to order your Yaro Flex modular carrier:
+            <ol type="1">
+              <li>1. Order Hip Belt - one size for all.</li>
+              <li>
+                2. Choose either Half Buckle shoulder straps or &#40;and&#41;
+                Full Buckle shoulder straps. Full buckle shoulder straps come in
+                sizes S, M, L.
+              </li>
+              <li>3. Choose Baby or &#40;and&#41; Toddler back panel.</li>
+            </ol>
+          </Typography>
+
+          <Typography varient="body">
+            Different sizes of back panels:
+            <br />
+            Baby panel:
+            <ul>
+              <li>
+                - dimensions: width - 39cm &#40;15,4&quot;&#41;, height - 47 cm
+                &#40;18.5&quot;&#41;
+              </li>
+              <li>
+                - for children between 7 lbs and 33 lbs &#40;3.2 kg and
+                15kg&#41;
+              </li>
+              <li>- for body length up to 85 cm</li>
+            </ul>
+          </Typography>
+
+          <Typography varient="body">
+            <li>1. Order Hip Belt - one size for all.</li>
+            <li>2. Choose either Half Buckle shoulder straps</li>
+            <li>3. Choose Baby or &#40;and&#41; Toddler back panel.</li>
           </Typography>
         </div>
       </div>
