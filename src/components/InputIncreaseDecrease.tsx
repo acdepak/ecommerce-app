@@ -1,7 +1,13 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-export const InputIncreaseDecrease = ({ stock }: { stock: number }) => {
+export const InputIncreaseDecrease = ({
+  stock,
+  name,
+}: {
+  stock: number;
+  name: string;
+}) => {
   const [value, setValue] = useState<number>(1);
 
   const onValChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -14,8 +20,12 @@ export const InputIncreaseDecrease = ({ stock }: { stock: number }) => {
   };
 
   const maxSet = () => {
-    value == stock && setValue(value + 1);
+    value < stock && setValue(value + 1);
   };
+
+  useEffect(() => {
+    setValue(1);
+  }, [name]);
   return (
     <div>
       <div className="flex w-fit items-center border border-grayhard bg-white py-2">
