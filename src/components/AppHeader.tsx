@@ -5,18 +5,19 @@ import {
   CheveronDownIcon,
   CrossIcon,
   GiftIcon,
-  MenuIcon,
   SearchIcon,
 } from "@/icons";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { MenuAnimation } from "./MenuAnimation";
 
 const menuItems = [
   {
     id: 11,
     title: "Wraps",
+    icon: <CheveronDownIcon />,
     subMenu: [
       { id: 111, title: "Yaro Flex", link: "#" },
       { id: 112, title: "Tula", link: "#" },
@@ -28,6 +29,7 @@ const menuItems = [
   {
     id: 12,
     title: "Carriers",
+    icon: <CheveronDownIcon />,
     subMenu: [
       { id: 121, title: "Storchewiege", link: "#" },
       { id: 122, title: "Marsupi", link: "#" },
@@ -36,6 +38,7 @@ const menuItems = [
   {
     id: 13,
     title: "Accessories",
+    icon: <CheveronDownIcon />,
     subMenu: [
       { id: 131, title: "Bondolino", link: "#" },
       { id: 132, title: "My Sol", link: "#" },
@@ -44,6 +47,7 @@ const menuItems = [
   {
     id: 14,
     title: "For you",
+    icon: <CheveronDownIcon />,
     subMenu: [
       { id: 141, title: "Tula", link: "#" },
       { id: 142, title: "Storchewiege", link: "#" },
@@ -52,16 +56,32 @@ const menuItems = [
   {
     id: 15,
     title: "Kids",
+    icon: <CheveronDownIcon />,
     subMenu: [
       { id: 151, title: "Bondolino", link: "#" },
       { id: 152, title: "Marsupi", link: "#" },
     ],
   },
+  {
+    id: 16,
+    title: "Sale",
+    icon: null,
+  },
+  {
+    id: 17,
+    title: "New",
+    icon: null,
+  },
+  {
+    id: 18,
+    title: "Mystery Box",
+    icon: <GiftIcon />,
+  },
 ];
 
 export const AppHeader = () => {
   const [openSearch, setOpenSearch] = useState(false);
-  const [openMenu, setOpenMenu] = useState(false);
+  const [openMenu, setOpenMenu] = useState<boolean>(false);
 
   const Search = () => {}; // What and How to search
   const SearchBox = () => {
@@ -111,13 +131,14 @@ export const AppHeader = () => {
             Blog
           </Link>
         </div>
+
         {/* sm: Menu show hide*/}
         <div
           onClick={() => setOpenMenu(!openMenu)}
           className="flex w-full items-center justify-start gap-2 lg:hidden"
         >
-          <div className="h-7 w-7 hover:text-red">
-            <MenuIcon />
+          <div className="hover:text-red">
+            <MenuAnimation />
           </div>
           <p className="font-mulish font-semibold md:text-lg">MENU</p>
         </div>
@@ -212,15 +233,39 @@ export const AppHeader = () => {
       </div>
 
       {/* sm:Menu */}
-      <div
-        // onClick={() => setOpenMenu(false)}
-        className={clsx("fixed top-[8.2%] z-10 flex h-full w-full lg:hidden", {
-          hidden: !openMenu,
-        })}
-      >
-        <div className="z-50 min-h-screen w-3/4 bg-white">
-          <div className="flex flex-col items-start gap-20 px-10 pt-10">
-            {/* <Link href="/" className="flex justify-center ">
+      <SmallScreenMenu openMenu={openMenu} setOpenMenu={setOpenMenu} />
+    </main>
+  );
+};
+
+interface SmallScreenMenuProps {
+  openMenu: boolean;
+  setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const SmallScreenMenu: React.FC<SmallScreenMenuProps> = ({
+  openMenu,
+  setOpenMenu,
+}) => {
+  const [isSubMenuOpen, setIsSubMenuOpen] = useState<boolean[]>(
+    menuItems.map(() => false)
+  );
+
+  const toggleSubMenu = (id: number) => {
+    const updatedSubMenu = [...isSubMenuOpen];
+    updatedSubMenu[id] = !updatedSubMenu[id];
+    setIsSubMenuOpen(updatedSubMenu);
+  };
+  return (
+    <div
+      // onClick={() => setOpenMenu(false)}
+      className={clsx("fixed top-[8.2%] z-10 flex h-full w-full lg:hidden", {
+        hidden: !openMenu,
+      })}
+    >
+      <div className="z-50 min-h-screen w-3/4 bg-white">
+        <div className="flex flex-col items-start gap-20 px-10 pt-10">
+          {/* <Link href="/" className="flex justify-center ">
               <div className="relative h-16 w-40 ">
                 <Image
                   src="/assets/images/Logo.png"
@@ -233,44 +278,60 @@ export const AppHeader = () => {
               </div>
             </Link> */}
 
-            <div className="flex flex-col items-start justify-center gap-7">
-              {menuItems.map((item) => (
+          <div className="flex flex-col items-start justify-center gap-7">
+            {menuItems.map((item, id) => (
+              <div
+                key={item.id}
+                className="flex flex-col items-start justify-start"
+              >
                 <div
-                  key={item.id}
-                  className="group flex flex-col items-start justify-start"
+                  className="flex items-center justify-start gap-2 hover:cursor-pointer hover:text-red"
+                  onClick={() => toggleSubMenu(id)}
                 >
-                  <div className="flex items-center gap-2 hover:cursor-pointer hover:text-red">
-                    <p className="font-mulish text-4xl leading-7 ">
-                      {item.title}
-                    </p>
-                    <div className="h-2 w-6">
-                      <CheveronDownIcon />
+                  {item.title == "Mystery Box" && (
+                    <div className="flex h-3 w-7 items-center ">
+                      {item.icon}
                     </div>
-                  </div>
+                  )}
+                  <p className="font-mulish text-4xl leading-7 ">
+                    {item.title}
+                  </p>
+                  {item.title !== "Mystery Box" && (
+                    <div className="flex h-2 w-6 items-center ">
+                      {item.icon}
+                    </div>
+                  )}
+                </div>
 
-                  <div className="hidden flex-col gap-1 capitalize group-hover:flex">
+                {item.subMenu && (
+                  <div
+                    className={clsx("flex-col gap-1 capitalize ", {
+                      flex: isSubMenuOpen[id],
+                      hidden: !isSubMenuOpen[id],
+                    })}
+                  >
                     {item.subMenu?.map((subitem, id) => (
                       <Link
                         key={id}
                         href={subitem.link}
-                        className="pl-3 pt-3 font-mulish text-xl font-medium leading-7 hover:text-red"
+                        className="pl-3 pt-3 font-mulish text-lg font-medium leading-7 hover:text-red"
                       >
                         {subitem.title}
                       </Link>
                     ))}
                   </div>
-                </div>
-              ))}
-            </div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
-
-        <div
-          onClick={() => setOpenMenu(false)}
-          className="absolute top-0 h-full w-full bg-black/50"
-        />
       </div>
-    </main>
+
+      <div
+        onClick={() => setOpenMenu(false)}
+        className="absolute top-0 h-full w-full bg-black/50"
+      />
+    </div>
   );
 };
 
@@ -284,46 +345,31 @@ const Menu = () => {
             className="group flex flex-col items-start justify-start"
           >
             <div className="flex items-center gap-2 hover:cursor-pointer hover:text-red">
+              <div className="h-3 w-4 ">
+                {item.title == "Mystery Box" && item.icon}
+              </div>
               <p className="font-mulish text-lg leading-7 ">{item.title}</p>
               <div className="h-1 w-3">
-                <CheveronDownIcon />
+                {item.title !== "Mystery Box" && item.icon}
               </div>
             </div>
 
-            <div className="absolute z-10 mt-7 hidden flex-col gap-1 rounded-lg bg-gray py-3 pl-3 pr-5 capitalize group-hover:flex">
-              {item.subMenu?.map((subitem, id) => (
-                <Link
-                  key={id}
-                  href={subitem.link}
-                  className="pt-1 font-mulish text-lg font-medium leading-7 tracking-wider hover:text-red"
-                >
-                  {subitem.title}
-                </Link>
-              ))}
-            </div>
+            {item.subMenu && (
+              <div className="absolute z-10 mt-7 hidden flex-col gap-1 rounded-lg bg-gray py-3 pl-3 pr-5 capitalize group-hover:flex">
+                {item.subMenu?.map((subitem, id) => (
+                  <Link
+                    key={id}
+                    href={subitem.link}
+                    className="pt-1 font-mulish text-lg font-medium leading-7 tracking-wider hover:text-red"
+                  >
+                    {subitem.title}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
         ))}
       </div>
-      <Link href="#" className="font-mulish text-lg leading-7 hover:text-red">
-        Sale
-      </Link>
-      <Link
-        href="/new"
-        className="font-mulish text-lg leading-7 hover:text-red"
-      >
-        New
-      </Link>
-      <Link
-        href="/gift"
-        className="flex items-center justify-center gap-2 hover:text-red"
-      >
-        <div className="h-3 w-4 ">
-          <GiftIcon />
-        </div>
-        <p className="font-mulish text-lg leading-7 hover:text-red">
-          Mystery Box
-        </p>
-      </Link>
     </div>
   );
 };

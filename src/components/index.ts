@@ -5,6 +5,7 @@ export * from "./Button";
 export * from "./FeaturedSection";
 export * from "./InputIncreaseDecrease";
 export * from "./ItemDisplaySection";
+export * from "./MenuAnimation";
 export * from "./ProductsSection";
 export * from "./ShopAllProd";
 export * from "./SocialSection";
