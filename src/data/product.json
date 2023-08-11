@@ -5,7 +5,12 @@
     "link": "/",
     "title": "Yaro flex back panel pussycat fluffy silver beige",
     "price": 45.0,
-    "stock": true
+    "stock": 10,
+    "like": false,
+    "length": "68cm",
+    "reference": "YREVTSLPR065",
+    "type": "100% cotton max text length example...",
+    "extra": "view all specifications"
   },
   {
     "id": 2,
@@ -13,7 +18,12 @@
     "link": "/",
     "title": "Yaro flex back panel pussycat fluffy silver beige",
     "price": 56.0,
-    "stock": true
+    "stock": 10,
+    "like": false,
+    "length": "68cm",
+    "reference": "YREVTSLPR065",
+    "type": "100% cotton max text length example...",
+    "extra": "view all specifications"
   },
   {
     "id": 3,
@@ -21,7 +31,12 @@
     "link": "/",
     "title": "Yaro flex back panel pussycat fluffy silver beige",
     "price": 41.0,
-    "stock": false
+    "stock": 10,
+    "like": false,
+    "length": "68cm",
+    "reference": "YREVTSLPR065",
+    "type": "100% cotton max text length example...",
+    "extra": "view all specifications"
   },
   {
     "id": 4,
@@ -29,7 +44,12 @@
     "link": "/",
     "title": "Yaro flex back panel pussycat fluffy silver beige",
     "price": 108.0,
-    "stock": true
+    "stock": 10,
+    "like": false,
+    "length": "68cm",
+    "reference": "YREVTSLPR065",
+    "type": "100% cotton max text length example...",
+    "extra": "view all specifications"
   },
   {
     "id": 5,
@@ -37,7 +57,12 @@
     "link": "/",
     "title": "Yaro flex back panel pussycat fluffy silver beige",
     "price": 149.0,
-    "stock": true
+    "stock": 10,
+    "like": false,
+    "length": "68cm",
+    "reference": "YREVTSLPR065",
+    "type": "100% cotton max text length example...",
+    "extra": "view all specifications"
   },
   {
     "id": 6,
@@ -45,7 +70,12 @@
     "link": "/",
     "title": "Yaro flex back panel pussycat fluffy silver beige",
     "price": 95.0,
-    "stock": true
+    "stock": 10,
+    "like": false,
+    "length": "68cm",
+    "reference": "YREVTSLPR065",
+    "type": "100% cotton max text length example...",
+    "extra": "view all specifications"
   },
   {
     "id": 7,
@@ -53,7 +83,12 @@
     "link": "/",
     "title": "Yaro flex back panel pussycat fluffy silver beige",
     "price": 276.0,
-    "stock": true
+    "stock": 10,
+    "like": false,
+    "length": "68cm",
+    "reference": "YREVTSLPR065",
+    "type": "100% cotton max text length example...",
+    "extra": "view all specifications"
   },
   {
     "id": 8,
@@ -61,6 +96,11 @@
     "link": "/",
     "title": "Yaro flex back panel pussycat fluffy silver beige",
     "price": 289.0,
-    "stock": true
+    "stock": 10,
+    "like": false,
+    "length": "68cm",
+    "reference": "YREVTSLPR065",
+    "type": "100% cotton max text length example...",
+    "extra": "view all specifications"
   }
 ]

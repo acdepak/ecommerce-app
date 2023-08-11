@@ -41,7 +41,7 @@ const HeroSection = () => {
     dotsClass: "slick-dots !flex gap-10 justify-center ",
     slidesToScroll: 1,
     slidesToShow: 1,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 3000,
     fade: true,
     speed: 1000,
