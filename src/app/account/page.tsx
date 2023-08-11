@@ -1,6 +1,5 @@
 import { BreadCrumb, Typography } from "@/components";
 import { AddressIcon, FavouritesIcon, HistoryIcon, Information } from "@/icons";
-import clsx from "clsx";
 import Link from "next/link";
 
 export default function page() {
@@ -18,21 +17,11 @@ export default function page() {
   return (
     <div className="flex flex-col items-center">
       <BreadCrumb title="Your Account" desc="" path="Home / My Account" />
-      <div className="grid grid-flow-row grid-cols-2 items-center justify-center gap-20 py-10 md:grid-cols-4">
+      <div className="grid grid-flow-row grid-cols-2 items-center justify-center gap-10 py-10 md:grid-cols-4 lg:gap-20">
         {items.map((items, id) => (
           <Link href={items.src} key={id}>
             <div className="w-fit border border-grayhard">
-              <div
-                className={clsx(
-                  "flex items-center justify-center hover:text-red",
-                  {
-                    "h-36 w-36 px-7 ": items.title === "Information",
-                    "h-36 w-36 p-7 ": items.title === "Addresses",
-                    "h-36 w-36 p-6": items.title === "Favourites",
-                    "h-36 w-36 p-7": items.title === "Order History",
-                  }
-                )}
-              >
+              <div className="flex h-36 w-36 items-center justify-center px-7 hover:text-red">
                 {items.svg}
               </div>
             </div>
@@ -44,27 +33,4 @@ export default function page() {
       </div>
     </div>
   );
-}
-
-{
-  /* <div className="flex w-fit justify-center border-2 border-yellow">
-<div className="h-36 w-16 border-2 border-grayhard">
-  <Information />
-</div>
-</div>
-<div className="flex w-fit justify-center border-2 border-yellow">
-<div className="h-14 w-16 border-2 border-grayhard">
-  <AddressIcon />
-</div>
-</div>
-<div className="flex w-fit justify-center border-2 border-yellow">
-<div className="h-20 w-16 border-2 border-grayhard">
-  <FavouritesIcon />
-</div>
-</div>
-<div className="flex w-fit justify-center border-2 border-yellow">
-<div className="h-24 w-16 border-2 border-grayhard">
-  <HistoryIcon />
-</div>
-</div> */
 }
