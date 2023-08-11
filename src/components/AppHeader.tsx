@@ -57,6 +57,7 @@ const menuItems = [
     id: 15,
     title: "Kids",
     icon: <CheveronDownIcon />,
+    link: "/kids",
     subMenu: [
       { id: 151, title: "Bondolino", link: "#" },
       { id: 152, title: "Marsupi", link: "#" },
@@ -66,16 +67,19 @@ const menuItems = [
     id: 16,
     title: "Sale",
     icon: null,
+    link: "/sale",
   },
   {
     id: 17,
     title: "New",
     icon: null,
+    link: "/new",
   },
   {
     id: 18,
     title: "Mystery Box",
     icon: <GiftIcon />,
+    link: "/gift",
   },
 ];
 
@@ -258,33 +262,23 @@ const SmallScreenMenu: React.FC<SmallScreenMenuProps> = ({
   };
   return (
     <div
-      // onClick={() => setOpenMenu(false)}
-      className={clsx("fixed top-[8.2%] z-10 flex h-full w-full lg:hidden", {
-        hidden: !openMenu,
-      })}
+      className={clsx(
+        "fixed top-[8.2%] z-10 flex h-full w-full flex-col lg:hidden",
+        {
+          hidden: !openMenu,
+        }
+      )}
     >
       <div className="z-50 min-h-screen w-3/4 bg-white">
-        <div className="flex flex-col items-start gap-20 px-10 pt-10">
-          {/* <Link href="/" className="flex justify-center ">
-              <div className="relative h-16 w-40 ">
-                <Image
-                  src="/assets/images/Logo.png"
-                  alt="Sling for Babies"
-                  fill
-                  sizes="(max-width: 768px) 100vw"
-                  className="object-contain"
-                  quality={100}
-                />
-              </div>
-            </Link> */}
-
+        <div className="flex flex-col items-start gap-7 px-10 pt-10">
           <div className="flex flex-col items-start justify-center gap-7">
             {menuItems.map((item, id) => (
               <div
                 key={item.id}
                 className="flex flex-col items-start justify-start"
               >
-                <div
+                <Link
+                  href={item.link ? item.link : "#"}
                   className="flex items-center justify-start gap-2 hover:cursor-pointer hover:text-red"
                   onClick={() => toggleSubMenu(id)}
                 >
@@ -301,7 +295,7 @@ const SmallScreenMenu: React.FC<SmallScreenMenuProps> = ({
                       {item.icon}
                     </div>
                   )}
-                </div>
+                </Link>
 
                 {item.subMenu && (
                   <div
@@ -324,6 +318,12 @@ const SmallScreenMenu: React.FC<SmallScreenMenuProps> = ({
               </div>
             ))}
           </div>
+          <Link
+            href={"/account"}
+            className="font-mulish text-4xl font-medium leading-6 hover:text-red lg:block"
+          >
+            My Account
+          </Link>
         </div>
       </div>
 
@@ -344,7 +344,10 @@ const Menu = () => {
             key={item.id}
             className="group flex flex-col items-start justify-start"
           >
-            <div className="flex items-center gap-2 hover:cursor-pointer hover:text-red">
+            <Link
+              href={item.link ? item.link : "#"}
+              className="flex items-center gap-2 hover:cursor-pointer hover:text-red"
+            >
               <div className="h-3 w-4 ">
                 {item.title == "Mystery Box" && item.icon}
               </div>
@@ -352,7 +355,7 @@ const Menu = () => {
               <div className="h-1 w-3">
                 {item.title !== "Mystery Box" && item.icon}
               </div>
-            </div>
+            </Link>
 
             {item.subMenu && (
               <div className="absolute z-10 mt-7 hidden flex-col gap-1 rounded-lg bg-gray py-3 pl-3 pr-5 capitalize group-hover:flex">
