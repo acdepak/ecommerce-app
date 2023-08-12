@@ -8,9 +8,7 @@ import {
   GoldStarIcon,
   HeartIcon,
   PlatinumIcon,
-  ProhibitionIcon,
   SilverStarIcon,
-  TickIcon,
   TruckIcon,
 } from "@/icons";
 import { ShareIcon } from "@/icons/ShareIcon";
@@ -21,6 +19,7 @@ import { SetStateAction, createRef, useState } from "react";
 import Slider from "react-slick";
 import { Button } from "./Button";
 import { InputIncreaseDecrease } from "./InputIncreaseDecrease";
+import { StockCheck } from "./StockCheck";
 import { Typography } from "./Typography";
 
 interface GiftOptions {
@@ -142,24 +141,7 @@ export const ItemDisplaySection = () => {
               {/*Stocked / out of Stock */}
 
               <div>
-                <div className="flex items-center gap-2 ">
-                  {selectedGift.stock == 0 ? (
-                    <div className="h-4 w-4 rotate-90 stroke-2 text-red">
-                      <ProhibitionIcon />
-                    </div>
-                  ) : (
-                    <div className="h-4 w-4 stroke-2 text-sky">
-                      <TickIcon />
-                    </div>
-                  )}
-
-                  <Typography
-                    varient="body1"
-                    color={selectedGift.stock < 1 ? "red" : "sky"}
-                  >
-                    {selectedGift.stock < 1 ? "Out of Stock" : "In Stock"}
-                  </Typography>
-                </div>
+                <StockCheck option={selectedGift} />
 
                 <Typography varient="body">
                   Reference:{" "}
