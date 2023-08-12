@@ -19,11 +19,10 @@ const menuItems = [
     title: "Wraps",
     icon: <CheveronDownIcon />,
     subMenu: [
-      { id: 111, title: "Yaro Flex", link: "#" },
-      { id: 112, title: "Tula", link: "#" },
-      { id: 113, title: "Storchewiege", link: "#" },
-      { id: 114, title: "Marsupi", link: "#" },
-      { id: 115, title: "Bondolino", link: "#" },
+      { id: 111, title: "Woven wrap", link: "/wrap" },
+      { id: 112, title: "Stretchy wrap", link: "/wrap" },
+      { id: 113, title: "Ring sling", link: "/wrap" },
+      { id: 114, title: "Baby Wrap", link: "/wrap" },
     ],
   },
   {
@@ -31,8 +30,11 @@ const menuItems = [
     title: "Carriers",
     icon: <CheveronDownIcon />,
     subMenu: [
-      { id: 121, title: "Storchewiege", link: "#" },
-      { id: 122, title: "Marsupi", link: "#" },
+      { id: 121, title: "Yaro Flex", link: "#" },
+      { id: 122, title: "Tula", link: "#" },
+      { id: 123, title: "Storchewiege", link: "#" },
+      { id: 124, title: "Marsupi", link: "#" },
+      { id: 125, title: "Bondolino", link: "#" },
     ],
   },
   {
