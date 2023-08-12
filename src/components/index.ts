@@ -9,4 +9,5 @@ export * from "./MenuAnimation";
 export * from "./ProductsSection";
 export * from "./ShopAllProd";
 export * from "./SocialSection";
+export * from "./StockCheck";
 export * from "./Typography";
