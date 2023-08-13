@@ -89,7 +89,7 @@ const TopSelling = () => {
               <Typography varient="body" className="text-">
                 {item.title}
               </Typography>
-              <div className="flex flex-col items-start pt-3 md:justify-between">
+              <div className="flex flex-col items-start pt-3 md:flex-row md:justify-between">
                 <Typography varient="heading4" center className="font-bold">
                   From <span>€{item.price}</span>
                 </Typography>
@@ -123,7 +123,7 @@ const TodaysDeal = () => {
             </div>
             <div className="w-[175px] pb-10 pt-5 md:w-[360px]">
               <Typography varient="body">{item.title}</Typography>
-              <div className="flex flex-col items-start pt-3 md:justify-between">
+              <div className="flex flex-col items-start pt-3 md:flex-row md:justify-between">
                 <Typography varient="heading4" center className="font-bold">
                   From <span className="text-red">€{item.price} </span>
                   <span className="font-normal line-through">
@@ -141,12 +141,9 @@ const TodaysDeal = () => {
 };
 
 const CategorySEO = () => {
-  const Paragraph = () => (
-    <p>{`We're parents too, and we know how overwhelming it can feel to shop
-  for baby products. That's why Colugo was born--to create a no-brainer
-  shopping experience for the next generation of parents where you can
-  buy quality products at a price that actually makes sense.`}</p>
-  );
+  const Paragraph =
+    "We're parents too, and we know how overwhelming it can feel to shop for baby products. That's why Colugo was born--to create a no-brainer shopping experience for the next generation of parents where you can buy quality products at a price that actually makes sense.";
+
   return (
     <div className="flex flex-col items-center gap-10 py-10">
       <Typography
@@ -159,14 +156,11 @@ const CategorySEO = () => {
         text here)
       </Typography>
       <Typography varient="body" width="3xl" className="px-10">
-        <Paragraph />
-        <Paragraph />
-        <Paragraph />
+        {Paragraph} {Paragraph} {Paragraph}
         <br />
-        <Paragraph />
-        <Paragraph />
+        {Paragraph} {Paragraph}
         <br />
-        <Paragraph />
+        {Paragraph}
       </Typography>
     </div>
   );
