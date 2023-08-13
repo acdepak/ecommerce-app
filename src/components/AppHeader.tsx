@@ -108,14 +108,6 @@ export const AppHeader = () => {
     );
   };
 
-  const Language = [
-    { id: 100, lang: "English", action: "#" },
-    { id: 101, lang: "English - AUS", action: "#" },
-    { id: 102, lang: "English - India", action: "#" },
-    { id: 103, lang: "English - UK", action: "#" },
-    { id: 104, lang: "English - US", action: "#" },
-  ];
-
   return (
     <main className="relative flex flex-col pt-6">
       <div className="flex px-5 pb-5 lg:px-10 lg:pb-0 xl:px-20">
@@ -179,20 +171,8 @@ export const AppHeader = () => {
           </div>
 
           {/* lg: top right section; md: basket icon */}
-          <div className="group flex flex-col">
-            <div className="hidden items-center gap-2 hover:cursor-pointer hover:text-red lg:flex">
-              <p className="font-mulish text-base leading-6 ">English</p>
-              <div className="h-1 w-3">
-                <CheveronDownIcon />
-              </div>
-            </div>
-            <div className="absolute mt-6 hidden flex-col rounded-lg bg-gray py-3 pl-2 pr-5 font-josefin group-hover:flex ">
-              {Language.map((item, id) => (
-                <div className=" hover:cursor-pointer hover:text-red" key={id}>
-                  {item.lang}
-                </div>
-              ))}
-            </div>
+          <div className="hidden lg:block">
+            <Language />
           </div>
 
           <Link
@@ -244,6 +224,38 @@ export const AppHeader = () => {
   );
 };
 
+const Language = () => {
+  const Language = [
+    { id: 100, lang: "English", action: "#" },
+    { id: 101, lang: "English - AUS", action: "#" },
+    { id: 102, lang: "English - India", action: "#" },
+    { id: 103, lang: "English - UK", action: "#" },
+    { id: 104, lang: "English - US", action: "#" },
+  ];
+  return (
+    <div className="group flex flex-col ">
+      <div className="flex items-center gap-2 hover:cursor-pointer hover:text-red">
+        <p className="font-mulish text-lg leading-6 lg:text-base">
+          <span className="inline no-underline lg:hidden">Language: </span>{" "}
+          <span className="text-sky underline lg:text-black lg:no-underline">
+            English
+          </span>
+        </p>
+        <div className="hidden h-1 w-3 lg:block">
+          <CheveronDownIcon />
+        </div>
+      </div>
+      <div className="absolute mt-6 hidden flex-col rounded-lg bg-gray py-3 pl-2 pr-5 font-josefin group-hover:flex ">
+        {Language.map((item, id) => (
+          <div className=" hover:cursor-pointer hover:text-red" key={id}>
+            {item.lang}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 interface SmallScreenMenuProps {
   openMenu: boolean;
   setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>;
@@ -289,7 +301,7 @@ const SmallScreenMenu: React.FC<SmallScreenMenuProps> = ({
                       {item.icon}
                     </div>
                   )}
-                  <p className="font-mulish text-4xl leading-7 ">
+                  <p className="font-mulish text-2xl leading-7 ">
                     {item.title}
                   </p>
                   {item.title !== "Mystery Box" && (
@@ -320,12 +332,31 @@ const SmallScreenMenu: React.FC<SmallScreenMenuProps> = ({
               </div>
             ))}
           </div>
-          <Link
-            href={"/account"}
-            className="font-mulish text-4xl font-medium leading-6 hover:text-red lg:block"
-          >
-            My Account
-          </Link>
+
+          <div className="flex flex-col gap-5">
+            <Language />
+
+            <Link
+              href="/"
+              className="font-mulish text-lg hover:text-red lg:leading-6"
+            >
+              Blog
+            </Link>
+
+            <Link
+              href={"/account"}
+              className="font-mulish text-lg font-medium leading-6 hover:text-red lg:block"
+            >
+              My Account
+            </Link>
+
+            <Link href="/" className="flex items-center gap-2 hover:text-red ">
+              <div className="h-4 w-5">
+                <ChatBubbleIcon />
+              </div>
+              <p className="font-mulish text-lg leading-6">Help&nbsp;Me</p>
+            </Link>
+          </div>
         </div>
       </div>
 
