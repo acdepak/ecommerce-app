@@ -48,7 +48,7 @@ const WrapCategorries = () => {
     },
   ];
   return (
-    <div className="flex justify-center gap-20 py-16">
+    <div className="flex flex-wrap justify-center gap-20 py-16 lg:flex-nowrap">
       {categories.map((category, id) => (
         <div key={id}>
           <div className="relative h-28 w-28">
@@ -73,10 +73,10 @@ const TopSelling = () => {
       <Typography varient="heading5" center className="py-10">
         TOP SELLING PRODUCTS IN THIS CATEGORY
       </Typography>
-      <div className="flex justify-center gap-10">
+      <div className="flex flex-wrap justify-center gap-5 md:gap-10 lg:flex-nowrap">
         {product.slice(2, 6).map((item, id) => (
           <div key={id}>
-            <div className="relative h-[541px] w-[360px]">
+            <div className="relative h-[244px] w-[175px] md:h-[541px] md:w-[360px]">
               <Image
                 src={item.src}
                 alt={item.title}
@@ -85,9 +85,11 @@ const TopSelling = () => {
                 quality={100}
               />
             </div>
-            <div className="pb-10 pt-5">
-              <Typography varient="body">{item.title}</Typography>
-              <div className="flex justify-between">
+            <div className="w-[175px] pb-10 pt-5 md:w-[360px]">
+              <Typography varient="body" className="text-">
+                {item.title}
+              </Typography>
+              <div className="flex flex-col items-start pt-3 md:justify-between">
                 <Typography varient="heading4" center className="font-bold">
                   From <span>€{item.price}</span>
                 </Typography>
@@ -107,10 +109,10 @@ const TodaysDeal = () => {
       <Typography varient="heading5" center className="pb-5 pt-10">
         TODAY DEALS
       </Typography>
-      <div className="flex justify-center gap-10">
+      <div className="flex flex-wrap justify-center gap-10 lg:flex-nowrap">
         {product.slice(2, 6).map((item, id) => (
           <div key={id}>
-            <div className="relative h-[541px] w-[360px]">
+            <div className="relative h-[244px] w-[175px] md:h-[541px] md:w-[360px]">
               <Image
                 src={item.src}
                 alt={item.title}
@@ -119,13 +121,13 @@ const TodaysDeal = () => {
                 quality={100}
               />
             </div>
-            <div className="pb-10 pt-5">
+            <div className="w-[175px] pb-10 pt-5 md:w-[360px]">
               <Typography varient="body">{item.title}</Typography>
-              <div className="flex justify-between">
+              <div className="flex flex-col items-start pt-3 md:justify-between">
                 <Typography varient="heading4" center className="font-bold">
                   From <span className="text-red">€{item.price} </span>
                   <span className="font-normal line-through">
-                    €{item.price}
+                    €{item.price + 1.1 * item.price}
                   </span>
                 </Typography>
                 <StockCheck option={item} />
@@ -150,12 +152,13 @@ const CategorySEO = () => {
       <Typography
         varient="social"
         width="3xl"
+        center
         className="font-bold tracking-wider"
       >
         Lorem ipsum dolor sit amet, consectetur adipisicing elit (Category SEO
         text here)
       </Typography>
-      <Typography varient="body" width="3xl">
+      <Typography varient="body" width="3xl" className="px-10">
         <Paragraph />
         <Paragraph />
         <Paragraph />
